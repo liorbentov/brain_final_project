@@ -59,8 +59,8 @@ namespace FinalProject
             // Set the data to one line
             string strData = Date.ToShortDateString() +
                 CSV_SEPEARATOR + Date.ToShortTimeString() +
-                CSV_SEPEARATOR + UserID +
-                CSV_SEPEARATOR;
+                CSV_SEPEARATOR + UserID + CSV_SEPEARATOR + Score +
+                CSV_SEPEARATOR + Time;
             
 
             // Open file of tests

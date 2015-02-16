@@ -32,14 +32,15 @@
             this.btnStartTest = new System.Windows.Forms.Button();
             this.txtUserID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pNewTest = new System.Windows.Forms.Panel();
+            this.pResults = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.btnNewTest = new System.Windows.Forms.Button();
+            this.btnHistory = new System.Windows.Forms.Button();
+            this.pNewTest.SuspendLayout();
+            this.pResults.SuspendLayout();
             this.SuspendLayout();
             // 
             // label6
@@ -84,27 +85,39 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "הכנס ת.ז";
             // 
-            // panel1
+            // pNewTest
             // 
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnStartTest);
-            this.panel1.Controls.Add(this.txtUserID);
-            this.panel1.Location = new System.Drawing.Point(43, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 169);
-            this.panel1.TabIndex = 16;
+            this.pNewTest.Controls.Add(this.label6);
+            this.pNewTest.Controls.Add(this.label1);
+            this.pNewTest.Controls.Add(this.btnStartTest);
+            this.pNewTest.Controls.Add(this.txtUserID);
+            this.pNewTest.Location = new System.Drawing.Point(43, 12);
+            this.pNewTest.Name = "pNewTest";
+            this.pNewTest.Size = new System.Drawing.Size(200, 169);
+            this.pNewTest.TabIndex = 16;
             // 
-            // panel2
+            // pResults
             // 
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(43, 187);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 162);
-            this.panel2.TabIndex = 17;
+            this.pResults.Controls.Add(this.btnHistory);
+            this.pResults.Controls.Add(this.label4);
+            this.pResults.Controls.Add(this.label2);
+            this.pResults.Controls.Add(this.label3);
+            this.pResults.Controls.Add(this.btnNewTest);
+            this.pResults.Location = new System.Drawing.Point(43, 12);
+            this.pResults.Name = "pResults";
+            this.pResults.Size = new System.Drawing.Size(200, 162);
+            this.pResults.TabIndex = 17;
+            this.pResults.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label4.Location = new System.Drawing.Point(116, 67);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(23, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "זמן";
             // 
             // label2
             // 
@@ -128,44 +141,45 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "ציון";
             // 
-            // button1
+            // btnNewTest
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button1.Location = new System.Drawing.Point(45, 110);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "התחל מבחן חדש";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnNewTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNewTest.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.btnNewTest.Location = new System.Drawing.Point(43, 97);
+            this.btnNewTest.Name = "btnNewTest";
+            this.btnNewTest.Size = new System.Drawing.Size(116, 23);
+            this.btnNewTest.TabIndex = 13;
+            this.btnNewTest.Text = "התחל מבחן חדש";
+            this.btnNewTest.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // btnHistory
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label4.Location = new System.Drawing.Point(116, 67);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(23, 13);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "זמן";
+            this.btnHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHistory.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.btnHistory.Location = new System.Drawing.Point(43, 126);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(116, 23);
+            this.btnHistory.TabIndex = 17;
+            this.btnHistory.Text = "ראה היסטוריה";
+            this.btnHistory.UseVisualStyleBackColor = true;
             // 
             // TestStart
             // 
             this.AcceptButton = this.btnStartTest;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 361);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(284, 196);
+            this.Controls.Add(this.pResults);
+            this.Controls.Add(this.pNewTest);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "TestStart";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "MMSE";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pNewTest.ResumeLayout(false);
+            this.pNewTest.PerformLayout();
+            this.pResults.ResumeLayout(false);
+            this.pResults.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -176,11 +190,12 @@
         private System.Windows.Forms.Button btnStartTest;
         private System.Windows.Forms.TextBox txtUserID;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pNewTest;
+        private System.Windows.Forms.Panel pResults;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNewTest;
+        private System.Windows.Forms.Button btnHistory;
     }
 }

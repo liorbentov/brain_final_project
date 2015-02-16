@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace FinalProject
     {
         private static T _instance = new T();
         private double m_dAnswerScore = 0;
+        public Stopwatch watch;
 
         public static T Instance
         {
@@ -30,6 +32,17 @@ namespace FinalProject
             {
                 m_dAnswerScore = value;
             }
+        }
+
+        public void StartWatch()
+        {
+            this.watch.Start();
+        }
+
+        public long StopWatch()
+        {
+            this.watch.Stop();
+            return (this.watch.ElapsedMilliseconds);
         }
     }
 }

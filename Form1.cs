@@ -30,7 +30,7 @@ namespace FinalProject
             if ((cbDay.Text != string.Empty) && (cbMonth.Text != string.Empty) &&
                 (cbYear.Text != string.Empty) && (cbSeason.Text != string.Empty))
             {
-                MessageBox.Show(Question1.getInstance().checkAnswer(Int32.Parse(cbDay.Text),
+                MessageBox.Show(Question1.Instance.checkAnswer(Int32.Parse(cbDay.Text),
                     cbMonth.SelectedIndex, Int32.Parse(cbYear.Text), cbSeason.SelectedIndex).ToString());
                 button1.Enabled = false;
                 tabControl1.SelectedTab = tabPage2;

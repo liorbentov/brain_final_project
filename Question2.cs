@@ -7,15 +7,13 @@ using System.Threading.Tasks;
 
 namespace FinalProject
 {
-    public class Question2
+    public class Question2 : Question<Question2>
     {
         private int m_nCity;
         private int m_nCountry;
         private int m_nFloor;
-        private double m_dAnswerScore;
-        private static Question2 instance;
 
-        private Question2()
+        public Question2()
         {
             // Get correct data from configuration
             this.m_nCity = Int32.Parse(ConfigurationManager.AppSettings.Get("Question1City")) - 1;
@@ -23,17 +21,7 @@ namespace FinalProject
             this.m_nFloor = Int32.Parse(ConfigurationManager.AppSettings.Get("Question1Floor")) - 1;
 
             // Set the score to the max
-            this.m_dAnswerScore = 3;
-        }
-
-        public static Question2 getInstance()
-        {
-            if (instance == null)
-            {
-                instance = new Question2();
-            }
-
-            return instance;
+            this.AnswerScore = 3;
         }
 
         public double checkAnswer(int nCityAnswer, int nCountryAnswer, int nFloorAnswer)
@@ -43,11 +31,11 @@ namespace FinalProject
             {
                 if ((nCityAnswer == this.m_nCity - 1) || (nCityAnswer == this.m_nCity + 1))
                 {
-                    this.m_dAnswerScore -= 0.5;
+                    this.AnswerScore -= 0.5;
                 }
                 else
                 {
-                    this.m_dAnswerScore -= 1;
+                    this.AnswerScore -= 1;
                 }
             }
 
@@ -56,11 +44,11 @@ namespace FinalProject
             {
                 if ((nCountryAnswer == this.m_nCountry - 1) || (nCountryAnswer == this.m_nCountry + 1))
                 {
-                    this.m_dAnswerScore -= 0.5;
+                    this.AnswerScore -= 0.5;
                 }
                 else
                 {
-                    this.m_dAnswerScore -= 1;
+                    this.AnswerScore -= 1;
                 }
             }
 
@@ -69,15 +57,15 @@ namespace FinalProject
             {
                 if ((nFloorAnswer == this.m_nFloor - 1) || (nFloorAnswer == this.m_nFloor + 1))
                 {
-                    this.m_dAnswerScore -= 0.5;
+                    this.AnswerScore -= 0.5;
                 }
                 else
                 {
-                    this.m_dAnswerScore -= 1;
+                    this.AnswerScore -= 1;
                 }
             }
 
-            return (this.m_dAnswerScore);
+            return (this.AnswerScore);
         }
     }
 }

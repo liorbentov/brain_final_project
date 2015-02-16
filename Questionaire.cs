@@ -13,9 +13,12 @@ namespace FinalProject
 {
     public partial class Questionaire : Form
     {
-        public Questionaire()
+        Test currTest;
+
+        public Questionaire(Test test)
         {
             InitializeComponent();
+            currTest = test;
         }
 
         private void button2_Click(object sender, EventArgs e)

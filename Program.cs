@@ -8,6 +8,8 @@ namespace FinalProject
 {
     static class Program
     {
+        public static Dictionary<string, List<Mistake>> testMistakesDictionary = new Dictionary<string, List<Mistake>>();
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +18,7 @@ namespace FinalProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Questionaire());
+            Application.Run(new TestStart());
         }
     }
 }

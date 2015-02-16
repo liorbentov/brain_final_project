@@ -35,7 +35,6 @@ namespace FinalProject
         private DateTime m_dtDate;
         private QuestionScore[] m_questions = new QuestionScore[7];
 
-
         public string UserID { get { return this.m_strUserID; } set { this.m_strUserID = value; } }
         public double Score { get { return this.m_dScore; } set { this.m_dScore = value; } }
         public double Time { get { return this.m_dTime; } set { this.m_dTime = value; } }
@@ -90,6 +89,7 @@ namespace FinalProject
         /// </summary>
         public void startTest()
         {
+
         }
 
         public void endTest()

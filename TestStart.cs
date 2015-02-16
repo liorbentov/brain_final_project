@@ -20,11 +20,11 @@ namespace FinalProject
         private void btnStartTest_Click(object sender, EventArgs e)
         {
             // Create new Test
-            Test tNew = new Test();
-            tNew.UserID = this.txtUserID.Text;
+            Test tNew = new Test(DateTime.Now, this.txtUserID.Text, 0, 0);
             
             // Display questions
-            tNew.startTest();
+            new Questionaire(tNew).Show();
+            this.Hide();
         }
     }
 }

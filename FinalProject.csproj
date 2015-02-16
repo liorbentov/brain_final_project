@@ -64,6 +64,12 @@
     <Compile Include="TestStart.Designer.cs">
       <DependentUpon>TestStart.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserTestLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserTestLog.Designer.cs">
+      <DependentUpon>UserTestLog.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Questionaire.resx">
       <DependentUpon>Questionaire.cs</DependentUpon>
     </EmbeddedResource>
@@ -78,6 +84,9 @@
     </Compile>
     <EmbeddedResource Include="TestStart.resx">
       <DependentUpon>TestStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserTestLog.resx">
+      <DependentUpon>UserTestLog.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

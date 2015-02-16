@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,25 @@ using System.Threading.Tasks;
 
 namespace FinalProject
 {
+    public struct Mistake
+    {
+        public string input;
+        public double toSubtract;
+
+        public Mistake(string newInput, double newToSubtract) {
+            input = newInput;
+            toSubtract = newToSubtract;
+        }
+    }
+
     /// <summary>
     /// This class represents the Test
     /// </summary>
     public class Test
     {
-        private const string CSV_SEPEARATOR = ";";
+
+        private const char CSV_SEPEARATOR = ',';
+        private const string DICTIONARY_FILE_NAME = "nouns.csv";
 
         private string m_strUserID;
         private double m_dScore;
@@ -33,6 +47,7 @@ namespace FinalProject
         public Test()
         {
             this.Date = DateTime.Now;
+            InitializeTestDictionary();
         }
 
         public Test(DateTime date, string userID, double score, double time)
@@ -41,6 +56,33 @@ namespace FinalProject
             this.UserID = userID;
             this.Score = score;
             this.Time = time;
+        }
+
+        /// <summary>
+        private void InitializeTestDictionary()
+        {
+            FileStream dictionaryFS = new FileStream(ConfigurationManager.AppSettings.Get("MistakesDictionaryPath") +
+                DICTIONARY_FILE_NAME, FileMode.Open, FileAccess.Read);
+            StreamReader dictionarySR = new StreamReader(dictionaryFS, Encoding.UTF8);
+            while (!dictionarySR.EndOfStream)
+            {
+                string[] currLine = dictionarySR.ReadLine().Split(CSV_SEPEARATOR);
+                List<Mistake> mistakes = new List<Mistake>();
+
+                for (int lineIndex = 1; lineIndex <= currLine.Length - 1; lineIndex+=2)
+                {
+                    if (currLine[lineIndex] != string.Empty)
+                    {
+                        Mistake mistakeToAdd = new Mistake(currLine[lineIndex], double.Parse(currLine[lineIndex + 1]));
+                        mistakes.Add(mistakeToAdd);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                Program.testMistakesDictionary.Add(currLine[0], mistakes);
+            }
         }
 
         /// <summary>

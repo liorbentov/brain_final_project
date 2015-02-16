@@ -16,9 +16,9 @@ namespace FinalProject
         public Question2()
         {
             // Get correct data from configuration
-            this.m_nCity = Int32.Parse(ConfigurationManager.AppSettings.Get("Question1City")) - 1;
-            this.m_nCountry = Int32.Parse(ConfigurationManager.AppSettings.Get("Question1Month")) - 1;
-            this.m_nFloor = Int32.Parse(ConfigurationManager.AppSettings.Get("Question1Floor")) - 1;
+            this.m_nCountry = Int32.Parse(ConfigurationManager.AppSettings.Get("Question2Country")) - 1;
+            this.m_nCity = Int32.Parse(ConfigurationManager.AppSettings.Get("Question2City")) - 1;
+            this.m_nFloor = Int32.Parse(ConfigurationManager.AppSettings.Get("Question2Floor")) - 1;
 
             // Set the score to the max
             this.AnswerScore = 3;

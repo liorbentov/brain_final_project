@@ -45,9 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnalogClock.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AnalogClock.Designer.cs">
+      <DependentUpon>AnalogClock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Question.cs" />
     <Compile Include="Question3.cs" />
     <Compile Include="Question2.cs" />
+    <Compile Include="Question6.cs" />
+    <Compile Include="Question7.cs" />
+    <Compile Include="Question8.cs" />
     <Compile Include="Questionaire.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +79,9 @@
     <Compile Include="UserTestLog.Designer.cs">
       <DependentUpon>UserTestLog.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AnalogClock.resx">
+      <DependentUpon>AnalogClock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Questionaire.resx">
       <DependentUpon>Questionaire.cs</DependentUpon>
     </EmbeddedResource>

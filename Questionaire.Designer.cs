@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnQuestion1 = new System.Windows.Forms.Button();
             this.cbSeason = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbYear = new System.Windows.Forms.ComboBox();
@@ -42,7 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnQuestion2 = new System.Windows.Forms.Button();
             this.cbFloor = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbCountry = new System.Windows.Forms.ComboBox();
@@ -69,10 +69,26 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.btnQuestion6 = new System.Windows.Forms.Button();
+            this.txtQuestion6 = new System.Windows.Forms.TextBox();
+            this.lbl100 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtMinutes = new System.Windows.Forms.NumericUpDown();
+            this.txtHours = new System.Windows.Forms.NumericUpDown();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.btnQuestion8 = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtQuestion8Minutes = new System.Windows.Forms.NumericUpDown();
+            this.txtQuestion8Hour = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.analogClock1 = new FinalProject.AnalogClock();
             this.GlobalTimer = new System.Windows.Forms.Timer(this.components);
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -83,6 +99,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMinutes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHours)).BeginInit();
+            this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQuestion8Minutes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQuestion8Hour)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -97,17 +119,18 @@
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.tabControl1.HotTrack = true;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeftLayout = true;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(456, 415);
+            this.tabControl1.Size = new System.Drawing.Size(342, 337);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.btnQuestion1);
             this.tabPage1.Controls.Add(this.cbSeason);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.cbYear);
@@ -117,27 +140,25 @@
             this.tabPage1.Controls.Add(this.cbDay);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 26);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(448, 385);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(334, 311);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "#1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnQuestion1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button1.Location = new System.Drawing.Point(227, 235);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "המשך";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnQuestion1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuestion1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.btnQuestion1.Location = new System.Drawing.Point(130, 191);
+            this.btnQuestion1.Name = "btnQuestion1";
+            this.btnQuestion1.Size = new System.Drawing.Size(75, 23);
+            this.btnQuestion1.TabIndex = 9;
+            this.btnQuestion1.Text = "המשך";
+            this.btnQuestion1.UseVisualStyleBackColor = true;
+            this.btnQuestion1.Click += new System.EventHandler(this.button1_Click);
             // 
             // cbSeason
             // 
@@ -150,10 +171,9 @@
             "חורף",
             "סתיו",
             "אביב"});
-            this.cbSeason.Location = new System.Drawing.Point(165, 160);
-            this.cbSeason.Margin = new System.Windows.Forms.Padding(4);
+            this.cbSeason.Location = new System.Drawing.Point(124, 130);
             this.cbSeason.Name = "cbSeason";
-            this.cbSeason.Size = new System.Drawing.Size(160, 26);
+            this.cbSeason.Size = new System.Drawing.Size(121, 22);
             this.cbSeason.TabIndex = 8;
             // 
             // label5
@@ -161,10 +181,9 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label5.Location = new System.Drawing.Point(335, 161);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(251, 131);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 21);
+            this.label5.Size = new System.Drawing.Size(36, 16);
             this.label5.TabIndex = 7;
             this.label5.Text = "עונה";
             // 
@@ -206,10 +225,9 @@
             "2028",
             "2029",
             "2030"});
-            this.cbYear.Location = new System.Drawing.Point(165, 127);
-            this.cbYear.Margin = new System.Windows.Forms.Padding(4);
+            this.cbYear.Location = new System.Drawing.Point(124, 103);
             this.cbYear.Name = "cbYear";
-            this.cbYear.Size = new System.Drawing.Size(160, 26);
+            this.cbYear.Size = new System.Drawing.Size(121, 22);
             this.cbYear.TabIndex = 6;
             // 
             // label4
@@ -217,10 +235,9 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label4.Location = new System.Drawing.Point(335, 128);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(251, 104);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 21);
+            this.label4.Size = new System.Drawing.Size(34, 16);
             this.label4.TabIndex = 5;
             this.label4.Text = "שנה";
             // 
@@ -243,10 +260,9 @@
             "אוקטובר",
             "נובמבר",
             "דצמבר"});
-            this.cbMonth.Location = new System.Drawing.Point(165, 94);
-            this.cbMonth.Margin = new System.Windows.Forms.Padding(4);
+            this.cbMonth.Location = new System.Drawing.Point(124, 76);
             this.cbMonth.Name = "cbMonth";
-            this.cbMonth.Size = new System.Drawing.Size(160, 26);
+            this.cbMonth.Size = new System.Drawing.Size(121, 22);
             this.cbMonth.TabIndex = 4;
             // 
             // label3
@@ -254,10 +270,9 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label3.Location = new System.Drawing.Point(335, 95);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(251, 77);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 21);
+            this.label3.Size = new System.Drawing.Size(41, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "חודש";
             // 
@@ -299,10 +314,9 @@
             "29",
             "30",
             "31"});
-            this.cbDay.Location = new System.Drawing.Point(165, 60);
-            this.cbDay.Margin = new System.Windows.Forms.Padding(4);
+            this.cbDay.Location = new System.Drawing.Point(124, 49);
             this.cbDay.Name = "cbDay";
-            this.cbDay.Size = new System.Drawing.Size(160, 26);
+            this.cbDay.Size = new System.Drawing.Size(121, 22);
             this.cbDay.TabIndex = 2;
             // 
             // label2
@@ -310,10 +324,9 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label2.Location = new System.Drawing.Point(335, 62);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(251, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 21);
+            this.label2.Size = new System.Drawing.Size(25, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "יום";
             // 
@@ -322,16 +335,15 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label1.Location = new System.Drawing.Point(144, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(108, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(282, 24);
+            this.label1.Size = new System.Drawing.Size(217, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "אנא הזן את התאריך הנוכחי";
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.btnQuestion2);
             this.tabPage2.Controls.Add(this.cbFloor);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.cbCountry);
@@ -339,27 +351,25 @@
             this.tabPage2.Controls.Add(this.cbCity);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Location = new System.Drawing.Point(4, 26);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(448, 385);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(334, 311);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "#2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnQuestion2
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button2.Location = new System.Drawing.Point(225, 235);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 28);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "המשך";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnQuestion2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuestion2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.btnQuestion2.Location = new System.Drawing.Point(130, 191);
+            this.btnQuestion2.Name = "btnQuestion2";
+            this.btnQuestion2.Size = new System.Drawing.Size(75, 23);
+            this.btnQuestion2.TabIndex = 19;
+            this.btnQuestion2.Text = "המשך";
+            this.btnQuestion2.UseVisualStyleBackColor = true;
+            this.btnQuestion2.Click += new System.EventHandler(this.button2_Click);
             // 
             // cbFloor
             // 
@@ -385,10 +395,9 @@
             "14",
             "15",
             "16"});
-            this.cbFloor.Location = new System.Drawing.Point(164, 127);
-            this.cbFloor.Margin = new System.Windows.Forms.Padding(4);
+            this.cbFloor.Location = new System.Drawing.Point(123, 103);
             this.cbFloor.Name = "cbFloor";
-            this.cbFloor.Size = new System.Drawing.Size(160, 26);
+            this.cbFloor.Size = new System.Drawing.Size(121, 22);
             this.cbFloor.TabIndex = 16;
             // 
             // label7
@@ -396,10 +405,9 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label7.Location = new System.Drawing.Point(333, 128);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(250, 104);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 21);
+            this.label7.Size = new System.Drawing.Size(80, 16);
             this.label7.TabIndex = 15;
             this.label7.Text = "קומה בבניין";
             // 
@@ -429,10 +437,9 @@
             "אוסטרליה",
             "דרום אפריקה",
             "אנטרקטיקה"});
-            this.cbCountry.Location = new System.Drawing.Point(164, 62);
-            this.cbCountry.Margin = new System.Windows.Forms.Padding(4);
+            this.cbCountry.Location = new System.Drawing.Point(123, 50);
             this.cbCountry.Name = "cbCountry";
-            this.cbCountry.Size = new System.Drawing.Size(160, 26);
+            this.cbCountry.Size = new System.Drawing.Size(121, 22);
             this.cbCountry.TabIndex = 14;
             // 
             // label8
@@ -440,10 +447,9 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label8.Location = new System.Drawing.Point(333, 63);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(250, 51);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 21);
+            this.label8.Size = new System.Drawing.Size(45, 16);
             this.label8.TabIndex = 13;
             this.label8.Text = "מדינה";
             this.label8.Click += new System.EventHandler(this.label8_Click);
@@ -482,10 +488,9 @@
             "אשקלון",
             "באר שבע",
             "אילת"});
-            this.cbCity.Location = new System.Drawing.Point(164, 94);
-            this.cbCity.Margin = new System.Windows.Forms.Padding(4);
+            this.cbCity.Location = new System.Drawing.Point(123, 76);
             this.cbCity.Name = "cbCity";
-            this.cbCity.Size = new System.Drawing.Size(160, 26);
+            this.cbCity.Size = new System.Drawing.Size(121, 22);
             this.cbCity.TabIndex = 12;
             // 
             // label9
@@ -493,10 +498,9 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label9.Location = new System.Drawing.Point(333, 96);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(250, 78);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(39, 21);
+            this.label9.Size = new System.Drawing.Size(29, 16);
             this.label9.TabIndex = 11;
             this.label9.Text = "עיר";
             // 
@@ -505,10 +509,9 @@
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label10.Location = new System.Drawing.Point(227, 17);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(170, 14);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(201, 24);
+            this.label10.Size = new System.Drawing.Size(155, 19);
             this.label10.TabIndex = 10;
             this.label10.Text = "אנא הזן את מיקומך";
             this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -517,21 +520,20 @@
             // 
             this.tabPage3.Controls.Add(this.lblRandomNouns);
             this.tabPage3.Controls.Add(this.label6);
-            this.tabPage3.Location = new System.Drawing.Point(4, 26);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage3.Size = new System.Drawing.Size(448, 385);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(334, 311);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "#3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // lblRandomNouns
             // 
-            this.lblRandomNouns.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.lblRandomNouns.Location = new System.Drawing.Point(118, 123);
+            this.lblRandomNouns.Location = new System.Drawing.Point(104, 95);
+            this.lblRandomNouns.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRandomNouns.Name = "lblRandomNouns";
-            this.lblRandomNouns.Size = new System.Drawing.Size(222, 44);
+            this.lblRandomNouns.Size = new System.Drawing.Size(130, 24);
             this.lblRandomNouns.TabIndex = 12;
             this.lblRandomNouns.Text = "label14";
             this.lblRandomNouns.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -541,10 +543,9 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label6.Location = new System.Drawing.Point(92, 17);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(69, 14);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(338, 24);
+            this.label6.Size = new System.Drawing.Size(260, 19);
             this.label6.TabIndex = 11;
             this.label6.Text = "שים לב לשמות העצם שיוצגו כעת";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -559,10 +560,9 @@
             this.tabPage4.Controls.Add(this.pictureBox3);
             this.tabPage4.Controls.Add(this.pictureBox2);
             this.tabPage4.Controls.Add(this.pictureBox1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 26);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(448, 385);
+            this.tabPage4.Size = new System.Drawing.Size(334, 311);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "#4";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -572,10 +572,9 @@
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label11.Location = new System.Drawing.Point(117, 17);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(88, 14);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(310, 24);
+            this.label11.Size = new System.Drawing.Size(241, 19);
             this.label11.TabIndex = 12;
             this.label11.Text = "הזן את שמות העצם שבתמונות";
             this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -584,62 +583,55 @@
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button3.Location = new System.Drawing.Point(171, 284);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Location = new System.Drawing.Point(128, 231);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 28);
+            this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 10;
             this.button3.Text = "המשך";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(11, 219);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox3.Location = new System.Drawing.Point(8, 178);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(132, 24);
+            this.textBox3.Size = new System.Drawing.Size(100, 21);
             this.textBox3.TabIndex = 5;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(152, 219);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.Location = new System.Drawing.Point(114, 178);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(132, 24);
+            this.textBox2.Size = new System.Drawing.Size(100, 21);
             this.textBox2.TabIndex = 4;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(293, 219);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Location = new System.Drawing.Point(220, 178);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 24);
+            this.textBox1.Size = new System.Drawing.Size(100, 21);
             this.textBox1.TabIndex = 3;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(293, 63);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox3.Location = new System.Drawing.Point(220, 51);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(133, 149);
+            this.pictureBox3.Size = new System.Drawing.Size(100, 121);
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(152, 63);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Location = new System.Drawing.Point(114, 51);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(133, 149);
+            this.pictureBox2.Size = new System.Drawing.Size(100, 121);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(11, 63);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(8, 51);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(133, 149);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 121);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -650,10 +642,9 @@
             this.tabPage5.Controls.Add(this.textBox6);
             this.tabPage5.Controls.Add(this.textBox5);
             this.tabPage5.Controls.Add(this.textBox4);
-            this.tabPage5.Location = new System.Drawing.Point(4, 26);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(448, 385);
+            this.tabPage5.Size = new System.Drawing.Size(334, 311);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "#5";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -663,10 +654,9 @@
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label12.Location = new System.Drawing.Point(59, 17);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(44, 14);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(369, 24);
+            this.label12.Size = new System.Drawing.Size(285, 19);
             this.label12.TabIndex = 13;
             this.label12.Text = "הזן את שמות העצם שהוצגו בסעיף 3";
             this.label12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -675,93 +665,253 @@
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button4.Location = new System.Drawing.Point(171, 284);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Location = new System.Drawing.Point(130, 231);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 28);
+            this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 11;
             this.button4.Text = "המשך";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(284, 129);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox6.Location = new System.Drawing.Point(213, 105);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(132, 24);
+            this.textBox6.Size = new System.Drawing.Size(100, 21);
             this.textBox6.TabIndex = 2;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(284, 96);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox5.Location = new System.Drawing.Point(213, 78);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(132, 24);
+            this.textBox5.Size = new System.Drawing.Size(100, 21);
             this.textBox5.TabIndex = 1;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(284, 63);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox4.Location = new System.Drawing.Point(213, 51);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(132, 24);
+            this.textBox4.Size = new System.Drawing.Size(100, 21);
             this.textBox4.TabIndex = 0;
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.btnQuestion6);
+            this.tabPage6.Controls.Add(this.txtQuestion6);
+            this.tabPage6.Controls.Add(this.lbl100);
             this.tabPage6.Controls.Add(this.label13);
-            this.tabPage6.Location = new System.Drawing.Point(4, 26);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(448, 385);
+            this.tabPage6.Size = new System.Drawing.Size(334, 311);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "#6";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // btnQuestion6
+            // 
+            this.btnQuestion6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnQuestion6.AutoSize = true;
+            this.btnQuestion6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.btnQuestion6.Location = new System.Drawing.Point(130, 125);
+            this.btnQuestion6.Name = "btnQuestion6";
+            this.btnQuestion6.Size = new System.Drawing.Size(75, 23);
+            this.btnQuestion6.TabIndex = 20;
+            this.btnQuestion6.Text = "החסר";
+            this.btnQuestion6.UseVisualStyleBackColor = true;
+            this.btnQuestion6.Click += new System.EventHandler(this.btnQuestion6_Click);
+            // 
+            // txtQuestion6
+            // 
+            this.txtQuestion6.Location = new System.Drawing.Point(114, 98);
+            this.txtQuestion6.Name = "txtQuestion6";
+            this.txtQuestion6.Size = new System.Drawing.Size(100, 21);
+            this.txtQuestion6.TabIndex = 19;
+            // 
+            // lbl100
+            // 
+            this.lbl100.AutoSize = true;
+            this.lbl100.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.lbl100.Location = new System.Drawing.Point(149, 52);
+            this.lbl100.Name = "lbl100";
+            this.lbl100.Size = new System.Drawing.Size(29, 16);
+            this.lbl100.TabIndex = 18;
+            this.lbl100.Text = "100";
             // 
             // label13
             // 
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label13.Location = new System.Drawing.Point(199, 17);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(149, 14);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(232, 24);
+            this.label13.Size = new System.Drawing.Size(178, 19);
             this.label13.TabIndex = 14;
             this.label13.Text = "החסר 7 מהמספר הבא";
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tabPage7
             // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 26);
-            this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage7.Controls.Add(this.button5);
+            this.tabPage7.Controls.Add(this.label18);
+            this.tabPage7.Controls.Add(this.txtMinutes);
+            this.tabPage7.Controls.Add(this.txtHours);
+            this.tabPage7.Controls.Add(this.label17);
+            this.tabPage7.Controls.Add(this.label16);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(448, 385);
+            this.tabPage7.Size = new System.Drawing.Size(334, 311);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "#7";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(165, 96);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(11, 13);
+            this.label18.TabIndex = 21;
+            this.label18.Text = ":";
+            // 
+            // txtMinutes
+            // 
+            this.txtMinutes.Location = new System.Drawing.Point(177, 94);
+            this.txtMinutes.Name = "txtMinutes";
+            this.txtMinutes.Size = new System.Drawing.Size(47, 21);
+            this.txtMinutes.TabIndex = 20;
+            // 
+            // txtHours
+            // 
+            this.txtHours.Location = new System.Drawing.Point(117, 94);
+            this.txtHours.Name = "txtHours";
+            this.txtHours.Size = new System.Drawing.Size(47, 21);
+            this.txtHours.TabIndex = 19;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label17.Location = new System.Drawing.Point(24, 46);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(299, 16);
+            this.label17.TabIndex = 17;
+            this.label17.Text = "אתמול בחמש וחצי אחרי הצהריים הלכנו עם אמא";
+            // 
+            // label16
+            // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label16.Location = new System.Drawing.Point(76, 14);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(251, 19);
+            this.label16.TabIndex = 16;
+            this.label16.Text = "הזן במספרים את השעה הנקובה";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // tabPage8
             // 
-            this.tabPage8.Location = new System.Drawing.Point(4, 26);
-            this.tabPage8.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage8.Controls.Add(this.btnQuestion8);
+            this.tabPage8.Controls.Add(this.label15);
+            this.tabPage8.Controls.Add(this.txtQuestion8Minutes);
+            this.tabPage8.Controls.Add(this.txtQuestion8Hour);
+            this.tabPage8.Controls.Add(this.label14);
+            this.tabPage8.Controls.Add(this.analogClock1);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(448, 385);
+            this.tabPage8.Size = new System.Drawing.Size(334, 311);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "#8";
             this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // btnQuestion8
+            // 
+            this.btnQuestion8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuestion8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.btnQuestion8.Location = new System.Drawing.Point(130, 267);
+            this.btnQuestion8.Name = "btnQuestion8";
+            this.btnQuestion8.Size = new System.Drawing.Size(75, 23);
+            this.btnQuestion8.TabIndex = 19;
+            this.btnQuestion8.Text = "המשך";
+            this.btnQuestion8.UseVisualStyleBackColor = true;
+            this.btnQuestion8.Click += new System.EventHandler(this.btnQuestion8_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(56, 107);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(11, 13);
+            this.label15.TabIndex = 18;
+            this.label15.Text = ":";
+            // 
+            // txtQuestion8Minutes
+            // 
+            this.txtQuestion8Minutes.Location = new System.Drawing.Point(68, 105);
+            this.txtQuestion8Minutes.Name = "txtQuestion8Minutes";
+            this.txtQuestion8Minutes.Size = new System.Drawing.Size(47, 21);
+            this.txtQuestion8Minutes.TabIndex = 17;
+            // 
+            // txtQuestion8Hour
+            // 
+            this.txtQuestion8Hour.Location = new System.Drawing.Point(8, 105);
+            this.txtQuestion8Hour.Name = "txtQuestion8Hour";
+            this.txtQuestion8Hour.Size = new System.Drawing.Size(47, 21);
+            this.txtQuestion8Hour.TabIndex = 16;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label14.Location = new System.Drawing.Point(74, 14);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(253, 19);
+            this.label14.TabIndex = 15;
+            this.label14.Text = "הזן במספרים את השעה המוצגת";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // analogClock1
+            // 
+            this.analogClock1.Draw1MinuteTicks = true;
+            this.analogClock1.Draw5MinuteTicks = true;
+            this.analogClock1.Location = new System.Drawing.Point(110, 14);
+            this.analogClock1.Name = "analogClock1";
+            this.analogClock1.SecondHandColor = System.Drawing.Color.Red;
+            this.analogClock1.Size = new System.Drawing.Size(247, 247);
+            this.analogClock1.TabIndex = 0;
+            this.analogClock1.TicksColor = System.Drawing.Color.Black;
             // 
             // GlobalTimer
             // 
             this.GlobalTimer.Interval = 1000;
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(344, 94);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 1;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.button5.Location = new System.Drawing.Point(130, 258);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 22;
+            this.button5.Text = "המשך";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // Questionaire
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 415);
+            this.ClientSize = new System.Drawing.Size(342, 337);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Questionaire";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
@@ -782,6 +932,14 @@
             this.tabPage5.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMinutes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHours)).EndInit();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQuestion8Minutes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQuestion8Hour)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -800,8 +958,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnQuestion1;
+        private System.Windows.Forms.Button btnQuestion2;
         private System.Windows.Forms.ComboBox cbFloor;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbCountry;
@@ -832,6 +990,22 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Timer GlobalTimer;
         private System.Windows.Forms.Label lblRandomNouns;
+        private AnalogClock analogClock1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.NumericUpDown txtQuestion8Minutes;
+        private System.Windows.Forms.NumericUpDown txtQuestion8Hour;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnQuestion8;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.NumericUpDown txtMinutes;
+        private System.Windows.Forms.NumericUpDown txtHours;
+        private System.Windows.Forms.Button btnQuestion6;
+        private System.Windows.Forms.TextBox txtQuestion6;
+        private System.Windows.Forms.Label lbl100;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
     }
 }
 

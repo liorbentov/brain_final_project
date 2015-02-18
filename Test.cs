@@ -23,6 +23,7 @@ namespace FinalProject
     /// <summary>
     /// This class represents the Test
     /// </summary>
+    [Serializable]
     public class Test
     {
 

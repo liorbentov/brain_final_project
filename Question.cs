@@ -22,13 +22,16 @@ namespace FinalProject
             }
         }
 
-        protected double AnswerScore
+        /// <summary>
+        /// Gets the score for the user answer
+        /// </summary>
+        public double AnswerScore
         {
             get
             {
                 return m_dAnswerScore;
             }
-            set
+            protected set
             {
                 m_dAnswerScore = value;
             }
@@ -43,6 +46,11 @@ namespace FinalProject
         {
             this.watch.Stop();
             return (this.watch.ElapsedMilliseconds);
+        }
+
+        public void reset()
+        {
+            _instance = new T();
         }
     }
 }

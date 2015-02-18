@@ -23,8 +23,16 @@ namespace FinalProject
             Test tNew = new Test(DateTime.Now, this.txtUserID.Text, 0, 0);
             
             // Display questions
-            new Questionaire(tNew).Show();
+            Questionaire questionaire = new Questionaire(tNew);
+            questionaire.FormClosed += questionaire_FormClosed;
+            questionaire.Show();
+
             this.Hide();
+        }
+
+        void questionaire_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

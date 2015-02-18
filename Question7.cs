@@ -12,6 +12,10 @@ namespace FinalProject
         private int m_nMinutes;
         private int m_nHours;
 
+        public int Hour { get { return this.m_nHours; } private set { this.m_nHours = value; } }
+        public int Minutes { get { return this.m_nMinutes; } private set { this.m_nMinutes = value; } }
+
+
         public Question7()
         {
             // Get correct data from configuration
@@ -24,49 +28,171 @@ namespace FinalProject
 
         public double checkAnswer(int minutes, int hours)
         {
-            // Check hours
-            if (hours == this.m_nHours)
+            // If hour and minutes are in place and exact
+            if ((hours == this.Hour) && (minutes == this.Minutes))
             {
                 this.AnswerScore -= 0;
             }
             else
             {
-                if (hours < this.m_nHours + 2 && hours > this.m_nHours - 2)
+                // If the hour is not in the AM-PM correct mode
+                if (((hours + 12) % 24 == this.Hour) && (minutes == this.Minutes))
                 {
-                    this.AnswerScore -= 0.2;
-                }
-            }
-
-            // Check minutes
-            if (minutes == this.m_nMinutes)
-            {
-                this.AnswerScore += 1;
-            }
-            else
-            {
-                if (minutes < this.m_nMinutes + 2 && minutes > this.m_nMinutes - 2)
-                {
-                    this.AnswerScore += 0.8;
-                }
-            }
-
-            // Check if the user replace the minutes and the hours places
-            if (this.m_nHours == minutes && this.m_nMinutes == hours)
-            {
-                this.AnswerScore += 0.5;
-            }
-            else
-            {
-                if (hours < this.m_nMinutes + 2 && hours > this.m_nMinutes - 2 &&
-                    (hours > this.m_nMinutes + 2 && hours < this.m_nMinutes - 2))
-                {
-                    this.AnswerScore += 0.2;
+                    this.AnswerScore -= 1;
                 }
                 else
                 {
+                    // If the data is exact but the places are wrong
+                    if ((hours == this.Minutes) && (minutes == this.Hour))
+                    {
+                        this.AnswerScore -= 0.5;
+                    }
+                    else
+                    {
+                        // If the hour is not in the AM-PM correct mode
+                        if (((hours + 12) % 24 == this.Minutes) && (minutes == this.Hour))
+                        {
+                            this.AnswerScore -= 1.5;
+                        }
+                        else
+                        {
+                            // If the places are wrong and there is deviation in one place
+                            if (((hours == this.Minutes) && (minutes >= this.Hour - 1) && (minutes <= this.Hour + 1)) ||
+                                (((minutes == this.Hour) && (hours >= this.Minutes - 1) && (hours <= this.Minutes + 1))))
+                            {
+                                this.AnswerScore -= 1;
+                            }
+                            else
+                            {
 
+                                // If the places are wrong and there is deviation in one place and the AM-PM mode is wrong
+                                if ((((hours + 12) % 24 == this.Minutes) && (minutes >= this.Hour - 1) && (minutes <= this.Hour + 1)) ||
+                                    (((minutes == this.Hour) && ((hours + 12) % 24 >= this.Minutes - 1) && ((hours + 12) % 24 <= this.Minutes + 1))))
+                                {
+                                    this.AnswerScore -= 2;
+                                }
+                                else
+                                {
+                                    // If the places are wrong and there is deviation in two places
+                                    if ((minutes >= this.Hour - 1) && (minutes <= this.Hour + 1) &&
+                                        (hours >= this.Minutes - 1) && (hours <= this.Minutes + 1))
+                                    {
+                                        this.AnswerScore -= 1.5;
+                                    }
+                                    else
+                                    {
+                                        // If the places are wrong and there is deviation in two places and the AM-PM mode is wrong
+                                        if ((minutes >= this.Hour - 1) && (minutes <= this.Hour + 1) &&
+                                            ((hours + 12) % 24 >= this.Minutes - 1) && ((hours + 12) % 24 <= this.Minutes + 1))
+                                        {
+                                            this.AnswerScore -= 1.5;
+                                        }
+                                        else
+                                        {
+                                            // If the hour is exact
+                                            if (hours == this.Hour)
+                                            {
+                                                // If there is deviation in the minutes
+                                                if ((minutes >= this.Minutes - 1) && (minutes <= this.Minutes + 1))
+                                                {
+                                                    this.AnswerScore -= 0.5;
+                                                }
+                                                else
+                                                {
+                                                    this.AnswerScore -= 1;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                // If the hour is exact and AM-PM mode is wrong
+                                                if ((hours + 12) % 24 == this.Hour)
+                                                {
+                                                    // If there is deviation in the minutes
+                                                    if ((minutes >= this.Minutes - 1) && (minutes <= this.Minutes + 1))
+                                                    {
+                                                        this.AnswerScore -= 1.5;
+                                                    }
+                                                    else
+                                                    {
+                                                        this.AnswerScore -= 2;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    // If hour with deviation of 1
+                                                    if ((hours >= this.Hour - 1) && (hours <= this.Hour + 1))
+                                                    {
+                                                        // If minutes are exact
+                                                        if (minutes == this.Minutes)
+                                                        {
+                                                            this.AnswerScore -= 0.5;
+                                                        }
+                                                        else
+                                                        {
+                                                            // If there is deviation in the minutes
+                                                            if ((minutes >= this.Minutes - 1) && (minutes <= this.Minutes + 1))
+                                                            {
+                                                                this.AnswerScore -= 1;
+                                                            }
+                                                            else
+                                                            {
+                                                                this.AnswerScore -= 1.5;
+                                                            }
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        // If hour with deviation of 1 and AM-PM mode is wrong
+                                                        if (((hours + 12) % 24 >= this.Hour - 1) && ((hours + 12) % 24 <= this.Hour + 1))
+                                                        {
+                                                            // If minutes are exact
+                                                            if (minutes == this.Minutes)
+                                                            {
+                                                                this.AnswerScore -= 1.5;
+                                                            }
+                                                            else
+                                                            {
+                                                                // If there is deviation in the minutes
+                                                                if ((minutes >= this.Minutes - 1) && (minutes <= this.Minutes + 1))
+                                                                {
+                                                                    this.AnswerScore -= 2;
+                                                                }
+                                                                else
+                                                                {
+                                                                    this.AnswerScore -= 2.5;
+                                                                }
+                                                            }
+                                                        }
+                                                        else
+                                                        {
+                                                            // If minutes are exact
+                                                            if (minutes == this.Minutes)
+                                                            {
+                                                                this.AnswerScore -= 2;
+                                                            }
+                                                            else
+                                                            {
+                                                                // If there is deviation in the minutes
+                                                                if ((minutes >= this.Minutes - 1) && (minutes <= this.Minutes + 1))
+                                                                {
+                                                                    this.AnswerScore -= 2.5;
+                                                                }
+                                                                else
+                                                                {
+                                                                    this.AnswerScore -= 3;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
-                    
             }
 
             return this.AnswerScore;

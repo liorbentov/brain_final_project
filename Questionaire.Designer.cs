@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnQuestion1 = new System.Windows.Forms.Button();
             this.cbSeason = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbYear = new System.Windows.Forms.ComboBox();
@@ -42,7 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnQuestion2 = new System.Windows.Forms.Button();
             this.cbFloor = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbCountry = new System.Windows.Forms.ComboBox();
@@ -88,6 +88,7 @@
             this.analogClock1 = new FinalProject.AnalogClock();
             this.GlobalTimer = new System.Windows.Forms.Timer(this.components);
             this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -129,7 +130,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.btnQuestion1);
             this.tabPage1.Controls.Add(this.cbSeason);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.cbYear);
@@ -147,17 +148,17 @@
             this.tabPage1.Text = "#1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnQuestion1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button1.Location = new System.Drawing.Point(170, 191);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "המשך";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnQuestion1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuestion1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.btnQuestion1.Location = new System.Drawing.Point(130, 191);
+            this.btnQuestion1.Name = "btnQuestion1";
+            this.btnQuestion1.Size = new System.Drawing.Size(75, 23);
+            this.btnQuestion1.TabIndex = 9;
+            this.btnQuestion1.Text = "המשך";
+            this.btnQuestion1.UseVisualStyleBackColor = true;
+            this.btnQuestion1.Click += new System.EventHandler(this.button1_Click);
             // 
             // cbSeason
             // 
@@ -342,7 +343,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.btnQuestion2);
             this.tabPage2.Controls.Add(this.cbFloor);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.cbCountry);
@@ -358,17 +359,17 @@
             this.tabPage2.Text = "#2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnQuestion2
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button2.Location = new System.Drawing.Point(169, 191);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "המשך";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnQuestion2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnQuestion2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.btnQuestion2.Location = new System.Drawing.Point(130, 191);
+            this.btnQuestion2.Name = "btnQuestion2";
+            this.btnQuestion2.Size = new System.Drawing.Size(75, 23);
+            this.btnQuestion2.TabIndex = 19;
+            this.btnQuestion2.Text = "המשך";
+            this.btnQuestion2.UseVisualStyleBackColor = true;
+            this.btnQuestion2.Click += new System.EventHandler(this.button2_Click);
             // 
             // cbFloor
             // 
@@ -664,7 +665,7 @@
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button4.Location = new System.Drawing.Point(128, 231);
+            this.button4.Location = new System.Drawing.Point(130, 231);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 11;
@@ -710,7 +711,7 @@
             this.btnQuestion6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnQuestion6.AutoSize = true;
             this.btnQuestion6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.btnQuestion6.Location = new System.Drawing.Point(129, 125);
+            this.btnQuestion6.Location = new System.Drawing.Point(130, 125);
             this.btnQuestion6.Name = "btnQuestion6";
             this.btnQuestion6.Size = new System.Drawing.Size(75, 23);
             this.btnQuestion6.TabIndex = 20;
@@ -749,6 +750,7 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.button5);
             this.tabPage7.Controls.Add(this.label18);
             this.tabPage7.Controls.Add(this.txtMinutes);
             this.tabPage7.Controls.Add(this.txtHours);
@@ -799,7 +801,7 @@
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label16.Location = new System.Drawing.Point(73, 17);
+            this.label16.Location = new System.Drawing.Point(76, 14);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(251, 19);
             this.label16.TabIndex = 16;
@@ -861,7 +863,7 @@
             this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label14.Location = new System.Drawing.Point(73, 14);
+            this.label14.Location = new System.Drawing.Point(74, 14);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(253, 19);
             this.label14.TabIndex = 15;
@@ -891,6 +893,17 @@
             this.button6.TabIndex = 1;
             this.button6.Text = "button6";
             this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.button5.Location = new System.Drawing.Point(130, 258);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 22;
+            this.button5.Text = "המשך";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // Questionaire
             // 
@@ -945,8 +958,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnQuestion1;
+        private System.Windows.Forms.Button btnQuestion2;
         private System.Windows.Forms.ComboBox cbFloor;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbCountry;
@@ -992,6 +1005,7 @@
         private System.Windows.Forms.TextBox txtQuestion6;
         private System.Windows.Forms.Label lbl100;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
     }
 }
 

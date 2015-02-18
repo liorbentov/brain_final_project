@@ -25,7 +25,7 @@ namespace FinalProject
 
             // Set buttons
             this.questionButtons = new Button[] { 
-                this.button1, this.button2, this.button3, this.button4, this.btnQuestion8, this.btnQuestion6};
+                this.btnQuestion1, this.btnQuestion2, this.button3, this.button4, this.btnQuestion8, this.btnQuestion6};
         }
 
         public void runQuestion3Timer(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace FinalProject
             {
                 MessageBox.Show(Question2.Instance.checkAnswer(cbCountry.SelectedIndex,
                     cbCity.SelectedIndex, cbFloor.SelectedIndex).ToString());
-                button2.Enabled = false;
+                btnQuestion2.Enabled = false;
                 //tabControl1.SelectedTab = tabPage3;
                 GlobalTimer.Tick += runQuestion3Timer;
                 GlobalTimer.Start();
@@ -70,7 +70,7 @@ namespace FinalProject
             {
                 MessageBox.Show(Question1.Instance.checkAnswer(Int32.Parse(cbDay.Text),
                     cbMonth.SelectedIndex, Int32.Parse(cbYear.Text), cbSeason.SelectedIndex).ToString());
-                button1.Enabled = false;
+                btnQuestion1.Enabled = false;
                 nextQuestion();
             }
             else

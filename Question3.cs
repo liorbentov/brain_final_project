@@ -38,7 +38,7 @@ namespace FinalProject
         {
             int nextNoun = nounsRandom.Next(0, lstAvailableNouns.Count);
             string currNoun = lstAvailableNouns[nextNoun];
-            lstShowedNouns.Insert(lstShowedNouns.Count, currNoun);
+            lstShowedNouns.Add(currNoun);
             lstAvailableNouns.Remove(currNoun);
             nNounsShowed++;
             return (currNoun);

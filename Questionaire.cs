@@ -221,5 +221,25 @@ namespace FinalProject
                 }
             };
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if ((this.nounMemoryText1.Text == string.Empty) || 
+                (this.nounMemoryText2.Text == string.Empty) ||
+                (this.nounMemoryText3.Text == string.Empty))
+            {
+                MessageBox.Show("יש למלא את כל השדות לפני שתוכל להמשיך בשאלה");
+            }
+            else
+            {
+                List<string> answersToCheck = new List<string>();
+                answersToCheck.Add(this.nounMemoryText1.Text);
+                answersToCheck.Add(this.nounMemoryText2.Text);
+                answersToCheck.Add(this.nounMemoryText3.Text);
+                MessageBox.Show(Question5.getInstance().checkAnswer(answersToCheck).ToString());
+                button3.Enabled = false;
+                nextQuestion();
+            }
+        }
     }
 }

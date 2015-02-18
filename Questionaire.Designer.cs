@@ -65,9 +65,9 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.nounMemoryText3 = new System.Windows.Forms.TextBox();
+            this.nounMemoryText2 = new System.Windows.Forms.TextBox();
+            this.nounMemoryText1 = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.btnQuestion6 = new System.Windows.Forms.Button();
             this.txtQuestion6 = new System.Windows.Forms.TextBox();
@@ -680,9 +680,9 @@
             // 
             this.tabPage5.Controls.Add(this.label12);
             this.tabPage5.Controls.Add(this.button4);
-            this.tabPage5.Controls.Add(this.textBox6);
-            this.tabPage5.Controls.Add(this.textBox5);
-            this.tabPage5.Controls.Add(this.textBox4);
+            this.tabPage5.Controls.Add(this.nounMemoryText3);
+            this.tabPage5.Controls.Add(this.nounMemoryText2);
+            this.tabPage5.Controls.Add(this.nounMemoryText1);
             this.tabPage5.Location = new System.Drawing.Point(4, 26);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage5.Name = "tabPage5";
@@ -715,30 +715,31 @@
             this.button4.TabIndex = 11;
             this.button4.Text = "המשך";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox6
+            // nounMemoryText3
             // 
-            this.textBox6.Location = new System.Drawing.Point(284, 129);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(132, 24);
-            this.textBox6.TabIndex = 2;
+            this.nounMemoryText3.Location = new System.Drawing.Point(284, 129);
+            this.nounMemoryText3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nounMemoryText3.Name = "nounMemoryText3";
+            this.nounMemoryText3.Size = new System.Drawing.Size(132, 24);
+            this.nounMemoryText3.TabIndex = 2;
             // 
-            // textBox5
+            // nounMemoryText2
             // 
-            this.textBox5.Location = new System.Drawing.Point(284, 96);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(132, 24);
-            this.textBox5.TabIndex = 1;
+            this.nounMemoryText2.Location = new System.Drawing.Point(284, 96);
+            this.nounMemoryText2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nounMemoryText2.Name = "nounMemoryText2";
+            this.nounMemoryText2.Size = new System.Drawing.Size(132, 24);
+            this.nounMemoryText2.TabIndex = 1;
             // 
-            // textBox4
+            // nounMemoryText1
             // 
-            this.textBox4.Location = new System.Drawing.Point(284, 63);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(132, 24);
-            this.textBox4.TabIndex = 0;
+            this.nounMemoryText1.Location = new System.Drawing.Point(284, 63);
+            this.nounMemoryText1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nounMemoryText1.Name = "nounMemoryText1";
+            this.nounMemoryText1.Size = new System.Drawing.Size(132, 24);
+            this.nounMemoryText1.TabIndex = 0;
             // 
             // tabPage6
             // 
@@ -1053,9 +1054,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox nounMemoryText3;
+        private System.Windows.Forms.TextBox nounMemoryText2;
+        private System.Windows.Forms.TextBox nounMemoryText1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Timer GlobalTimer;
         private System.Windows.Forms.Label lblRandomNouns;

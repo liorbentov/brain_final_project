@@ -16,15 +16,15 @@ namespace FinalProject
         public Question2()
         {
             // Get correct data from configuration
-            this.m_nCountry = Int32.Parse(ConfigurationManager.AppSettings.Get("Question2Country")) - 1;
-            this.m_nCity = Int32.Parse(ConfigurationManager.AppSettings.Get("Question2City")) - 1;
-            this.m_nFloor = Int32.Parse(ConfigurationManager.AppSettings.Get("Question2Floor")) - 1;
+            this.m_nCountry = Int32.Parse(ConfigurationManager.AppSettings.Get("Question2Country"));
+            this.m_nCity = Int32.Parse(ConfigurationManager.AppSettings.Get("Question2City"));
+            this.m_nFloor = Int32.Parse(ConfigurationManager.AppSettings.Get("Question2Floor"));
 
             // Set the score to the max
             this.AnswerScore = 3;
         }
 
-        public double checkAnswer(int nCityAnswer, int nCountryAnswer, int nFloorAnswer)
+        public double checkAnswer(int nCountryAnswer, int nCityAnswer, int nFloorAnswer)
         {
             // City
             if (nCityAnswer != this.m_nCity)

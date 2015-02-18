@@ -12,7 +12,7 @@ namespace FinalProject
     {
         private int nNounsShowed;
         private List<string> lstAvailableNouns;
-        public List<string> lstShowedNouns;
+        private List<string> lstShowedNouns;
         private Random nounsRandom;
         private static Question3 instance;
 
@@ -47,6 +47,11 @@ namespace FinalProject
         public int getNounsNumberShowed()
         {
             return nNounsShowed;
+        }
+
+        public List<string> getNounsShowed()
+        {
+            return lstShowedNouns;
         }
     }
 }

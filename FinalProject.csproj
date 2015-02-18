@@ -46,8 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Question.cs" />
-    <Compile Include="Question3.cs" />
     <Compile Include="Question2.cs" />
+    <Compile Include="Question3.cs" />
+    <Compile Include="Question4.cs" />
     <Compile Include="Questionaire.cs">
       <SubType>Form</SubType>
     </Compile>

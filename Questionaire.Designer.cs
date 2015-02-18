@@ -51,6 +51,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lblRandomNouns = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
@@ -72,7 +73,6 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.GlobalTimer = new System.Windows.Forms.Timer(this.components);
-            this.lblRandomNouns = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -526,6 +526,16 @@
             this.tabPage3.Text = "#3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // lblRandomNouns
+            // 
+            this.lblRandomNouns.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.lblRandomNouns.Location = new System.Drawing.Point(118, 123);
+            this.lblRandomNouns.Name = "lblRandomNouns";
+            this.lblRandomNouns.Size = new System.Drawing.Size(222, 44);
+            this.lblRandomNouns.TabIndex = 12;
+            this.lblRandomNouns.Text = "label14";
+            this.lblRandomNouns.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -743,16 +753,7 @@
             // 
             // GlobalTimer
             // 
-            this.GlobalTimer.Interval = 10000;
-            // 
-            // lblRandomNouns
-            // 
-            this.lblRandomNouns.Location = new System.Drawing.Point(138, 117);
-            this.lblRandomNouns.Name = "lblRandomNouns";
-            this.lblRandomNouns.Size = new System.Drawing.Size(173, 30);
-            this.lblRandomNouns.TabIndex = 12;
-            this.lblRandomNouns.Text = "label14";
-            this.lblRandomNouns.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.GlobalTimer.Interval = 1000;
             // 
             // Questionaire
             // 

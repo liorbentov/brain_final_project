@@ -55,6 +55,8 @@ namespace FinalProject
             this.UserID = userID;
             this.Score = score;
             this.Time = time;
+
+            InitializeTestDictionary();
         }
 
         /// <summary>

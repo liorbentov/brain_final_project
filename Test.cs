@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,17 @@ using System.Threading.Tasks;
 
 namespace FinalProject
 {
+    /// <summary>
+    /// This struct represent the typos
+    /// </summary>
     public struct Mistake
     {
         public string input;
         public double toSubtract;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Mistake(string newInput, double newToSubtract) {
             input = newInput;
             toSubtract = newToSubtract;
@@ -26,16 +33,19 @@ namespace FinalProject
     [Serializable]
     public class Test
     {
-
+        // Const Members
         private const char CSV_SEPEARATOR = ',';
         private const string DICTIONARY_FILE_NAME = "nouns.csv";
+        private const string NOUN_PIC_SUFFIX = ".png";
 
+        // Data Members
         private string m_strUserID;
         private double m_dScore;
         private double m_dTime;
         private DateTime m_dtDate;
         private QuestionScore[] m_questions = new QuestionScore[7];
 
+        // Getters And Setters
         public string UserID { get { return this.m_strUserID; } set { this.m_strUserID = value; } }
         public double Score { get { return this.m_dScore; } set { this.m_dScore = value; } }
         public double Time { get { return this.m_dTime; } set { this.m_dTime = value; } }
@@ -48,8 +58,12 @@ namespace FinalProject
         {
             this.Date = DateTime.Now;
             InitializeTestDictionary();
+            LoadNounsImages();
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Test(DateTime date, string userID, double score, double time)
         {
             this.Date = date;
@@ -58,19 +72,27 @@ namespace FinalProject
             this.Time = time;
 
             InitializeTestDictionary();
+            LoadNounsImages();
         }
 
         /// <summary>
+        /// This method initialize the test dictionary nouns from csv file (use in questions 3-5)
+        /// </summary>
         private void InitializeTestDictionary()
         {
+            // File stream and reader definition
             FileStream dictionaryFS = new FileStream(ConfigurationManager.AppSettings.Get("MistakesDictionaryPath") +
                 DICTIONARY_FILE_NAME, FileMode.Open, FileAccess.Read);
             StreamReader dictionarySR = new StreamReader(dictionaryFS, Encoding.UTF8);
+
+            // Reads the file until the end
             while (!dictionarySR.EndOfStream)
             {
+                // Gets the correct noun
                 string[] currLine = dictionarySR.ReadLine().Split(CSV_SEPEARATOR);
                 List<Mistake> mistakes = new List<Mistake>();
 
+                // Load all of it's common typos into the dictionary
                 for (int lineIndex = 1; lineIndex <= currLine.Length - 1; lineIndex+=2)
                 {
                     if (currLine[lineIndex] != string.Empty)
@@ -83,7 +105,23 @@ namespace FinalProject
                         break;
                     }
                 }
+
                 Program.testMistakesDictionary.Add(currLine[0], mistakes);
+            }
+        }
+
+        // Load all of the nouns images according to the nouns from the csv file
+        private void LoadNounsImages()
+        {
+            // Runs all over the nouns
+            foreach (string currNoun in Program.testMistakesDictionary.Keys) {
+                // Gets the picture
+                Bitmap picToAdd = new Bitmap(Image.FromFile(
+                    ConfigurationManager.AppSettings.Get("NounsImagesPath") + 
+                        currNoun + NOUN_PIC_SUFFIX));
+
+                // Load it into the Dictionary
+                Program.nounsImages.Add(currNoun, picToAdd);
             }
         }
 

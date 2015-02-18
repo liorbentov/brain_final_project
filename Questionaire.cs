@@ -32,9 +32,11 @@ namespace FinalProject
         {
             if (Question3.getInstance().getNounsNumberShowed() == 3)
             {
-                tabControl1.SelectedTab = tabPage4;
                 GlobalTimer.Tick -= runQuestion3Timer;
                 GlobalTimer.Stop();
+                this.nounPicture1.Image =
+                    Question4.getInstance().getNextNounBitmap(Question4.getInstance().getNextNoun());
+                nextQuestion();
             }
             else
             {
@@ -153,6 +155,71 @@ namespace FinalProject
                 Question8.Instance.checkAnswer(
                     Convert.ToInt32(txtQuestion8Minutes.Value), 
                     Convert.ToInt32(txtQuestion8Hour.Value)).ToString());
+        }
+
+        private void GlobalTimer_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            switch (Question4.getInstance().getNounsNumberShowed()) 
+            {
+                case (1) :
+                {
+                    if (this.nounPictureText1.Text != string.Empty) {
+                        nounPicture1.Visible = false;
+                        nounPictureText1.Visible = false;
+                        nounPicture2.Image = 
+                            Question4.getInstance().getNextNounBitmap(
+                                Question4.getInstance().getNextNoun());
+                        nounPicture2.Visible = true;
+                        nounPictureText2.Visible = true;
+                        nounPictureText2.Focus();
+                    }
+                    else
+                    {
+                        MessageBox.Show("יש למלא את תשובה שתוכל להמשיך בשאלה");
+                    }
+                    break;
+                }
+                case (2) :
+                {
+                    if (this.nounPictureText1.Text != string.Empty) {
+                        nounPicture2.Visible = false;
+                        nounPictureText2.Visible = false;
+                        nounPicture3.Image = 
+                            Question4.getInstance().getNextNounBitmap(
+                                Question4.getInstance().getNextNoun());
+                        nounPicture3.Visible = true;
+                        nounPictureText3.Visible = true;
+                        nounPictureText3.Focus();
+                    }
+                    else
+                    {
+                        MessageBox.Show("יש למלא את תשובה שתוכל להמשיך בשאלה");
+                    }
+                    break;
+                }
+                case (3) :
+                {
+                    if (this.nounPictureText3.Text != string.Empty) {
+                        List<string> answersToCheck = new List<string>();
+                        answersToCheck.Insert(0, this.nounPictureText1.Text);
+                        answersToCheck.Insert(1, this.nounPictureText2.Text);
+                        answersToCheck.Insert(2, this.nounPictureText3.Text);
+                        MessageBox.Show(Question4.getInstance().checkAnswer(answersToCheck).ToString());
+                        button3.Enabled = false;
+                        nextQuestion();
+                    }
+                    else 
+                    {
+                        MessageBox.Show("יש למלא את תשובה שתוכל להמשיך בשאלה");
+                    }
+                    break;
+                }
+            };
         }
     }
 }

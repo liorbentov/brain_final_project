@@ -38,10 +38,10 @@ namespace FinalProject
         {
             int nextNoun = nounsRandom.Next(0, lstAvailableNouns.Count);
             string currNoun = lstAvailableNouns[nextNoun];
-            lstShowedNouns.Add(currNoun);
+            lstShowedNouns.Insert(lstShowedNouns.Count, currNoun);
             lstAvailableNouns.Remove(currNoun);
             nNounsShowed++;
-            return currNoun;
+            return (currNoun);
         }
 
         public int getNounsNumberShowed()
@@ -52,6 +52,11 @@ namespace FinalProject
         public List<string> getNounsShowed()
         {
             return lstShowedNouns;
+        }
+
+        public double checkAnswer(int nCountryAnswer, int nCityAnswer, int nFloorAnswer)
+        {
+            return 0;
         }
     }
 }

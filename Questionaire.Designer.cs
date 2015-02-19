@@ -949,7 +949,7 @@
             // 
             // GlobalTimer
             // 
-            this.GlobalTimer.Interval = 1000;
+            this.GlobalTimer.Interval = 10000;
             this.GlobalTimer.Tick += new System.EventHandler(this.GlobalTimer_Tick);
             // 
             // button6

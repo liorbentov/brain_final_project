@@ -12,6 +12,7 @@ namespace FinalProject
 {
     public partial class TestStart : Form
     {
+        private Test tNew;
         public TestStart()
         {
             InitializeComponent();
@@ -20,7 +21,7 @@ namespace FinalProject
         private void btnStartTest_Click(object sender, EventArgs e)
         {
             // Create new Test
-            Test tNew = new Test(DateTime.Now, this.txtUserID.Text, 0, 0);
+            tNew = new Test(DateTime.Now, this.txtUserID.Text, 0, 0);
             
             // Display questions
             Questionaire questionaire = new Questionaire(tNew);
@@ -34,6 +35,19 @@ namespace FinalProject
         {
             //this.Close();
             this.Show();
+            pNewTest.Visible = false;
+            pResults.Visible = true;
+
+            tNew.endTest();
+            this.lblScore.Text = tNew.Score.ToString();
+            this.lblTime.Text = tNew.Time.ToString();
+
+            tNew.User.getUserTests();
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            new UserTestLog(tNew.User.PreviousTest).Show();
         }
     }
 }

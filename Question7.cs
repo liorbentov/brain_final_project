@@ -19,7 +19,7 @@ namespace FinalProject
         public Question7()
         {
             // Get correct data from configuration
-            this.m_nMinutes = Int32.Parse(ConfigurationManager.AppSettings.Get("Questio7Minutes"));
+            this.m_nMinutes = Int32.Parse(ConfigurationManager.AppSettings.Get("Question7Minutes"));
             this.m_nHours = Int32.Parse(ConfigurationManager.AppSettings.Get("Question7Hours"));
 
             // Set the score to the max

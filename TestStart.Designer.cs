@@ -34,11 +34,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pNewTest = new System.Windows.Forms.Panel();
             this.pResults = new System.Windows.Forms.Panel();
+            this.btnHistory = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnNewTest = new System.Windows.Forms.Button();
-            this.btnHistory = new System.Windows.Forms.Button();
+            this.lblScore = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
             this.pNewTest.SuspendLayout();
             this.pResults.SuspendLayout();
             this.SuspendLayout();
@@ -98,6 +100,8 @@
             // 
             // pResults
             // 
+            this.pResults.Controls.Add(this.lblTime);
+            this.pResults.Controls.Add(this.lblScore);
             this.pResults.Controls.Add(this.btnHistory);
             this.pResults.Controls.Add(this.label4);
             this.pResults.Controls.Add(this.label2);
@@ -109,13 +113,25 @@
             this.pResults.TabIndex = 17;
             this.pResults.Visible = false;
             // 
+            // btnHistory
+            // 
+            this.btnHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHistory.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.btnHistory.Location = new System.Drawing.Point(43, 126);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(116, 23);
+            this.btnHistory.TabIndex = 17;
+            this.btnHistory.Text = "ראה היסטוריה";
+            this.btnHistory.UseVisualStyleBackColor = true;
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label4.Location = new System.Drawing.Point(116, 67);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(23, 13);
+            this.label4.Size = new System.Drawing.Size(25, 13);
             this.label4.TabIndex = 16;
             this.label4.Text = "זמן";
             // 
@@ -134,10 +150,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label3.Location = new System.Drawing.Point(115, 45);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 13);
+            this.label3.Size = new System.Drawing.Size(27, 13);
             this.label3.TabIndex = 15;
             this.label3.Text = "ציון";
             // 
@@ -152,16 +168,25 @@
             this.btnNewTest.Text = "התחל מבחן חדש";
             this.btnNewTest.UseVisualStyleBackColor = true;
             // 
-            // btnHistory
+            // lblScore
             // 
-            this.btnHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHistory.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.btnHistory.Location = new System.Drawing.Point(43, 126);
-            this.btnHistory.Name = "btnHistory";
-            this.btnHistory.Size = new System.Drawing.Size(116, 23);
-            this.btnHistory.TabIndex = 17;
-            this.btnHistory.Text = "ראה היסטוריה";
-            this.btnHistory.UseVisualStyleBackColor = true;
+            this.lblScore.AutoSize = true;
+            this.lblScore.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.lblScore.Location = new System.Drawing.Point(69, 45);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(25, 13);
+            this.lblScore.TabIndex = 18;
+            this.lblScore.Text = "XXX";
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.lblTime.Location = new System.Drawing.Point(69, 67);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(25, 13);
+            this.lblTime.TabIndex = 19;
+            this.lblTime.Text = "XXX";
             // 
             // TestStart
             // 
@@ -197,5 +222,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnNewTest;
         private System.Windows.Forms.Button btnHistory;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Label lblScore;
     }
 }

@@ -28,9 +28,9 @@ namespace FinalProject
         {
             // Build data table
             DataTable dt = new DataTable();
-            dt.Columns.Add(new DataColumn("Date", typeof(DateTime)));
-            dt.Columns.Add(new DataColumn("Score", typeof(double)));
-            dt.Columns.Add(new DataColumn("Time", typeof(double)));
+            dt.Columns.Add(new DataColumn("תאריך", typeof(DateTime)));
+            dt.Columns.Add(new DataColumn("ניקוד", typeof(double)));
+            dt.Columns.Add(new DataColumn("זמן", typeof(double)));
 
             DataRow drNew;
 

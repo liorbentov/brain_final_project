@@ -17,6 +17,7 @@ namespace FinalProject
         Test currTest;
         int currQuestion = 0;
         Button[] questionButtons;
+        GroupBox[] panels;
 
         public Questionaire(Test test)
         {
@@ -29,6 +30,11 @@ namespace FinalProject
                 this.btnQuestion1, this.btnQuestion2, null, 
                 this.btnQuestion4, this.btnQuestion5, this.btnQuestion6, 
                 this.btnQuestion7, this.btnQuestion8};
+
+            // Set question panels
+            this.panels = new GroupBox[] { this.gbQuestion1, this.gbQuestion2, this.gbQuestion3, 
+                this.gbQuestion4, this.gbQuestion5, this.gbQuestion6, this.gbQuestion7,
+                this.gbQuestion8};
         }
 
         public void runQuestion3Timer(object sender, EventArgs e)
@@ -51,7 +57,7 @@ namespace FinalProject
         {
             this.timer1.Tick -= newTabSelected;
             this.timer1.Stop();
-            foreach (Control c in this.tabControl1.SelectedTab.Controls)
+            foreach (Control c in this.panels[this.currQuestion - 1].Controls)
             {
                 c.Enabled = true;
             }
@@ -62,8 +68,10 @@ namespace FinalProject
             if ((cbCountry.Text != string.Empty) && (cbCity.Text != null) &&
                 (cbFloor.Text != string.Empty))
             {
+                Question2.Instance.StopWatch();
                 QuestionScore qs = new QuestionScore(Question2.Instance.checkAnswer(cbCountry.SelectedIndex,
-                    cbCity.SelectedIndex, cbFloor.SelectedIndex), 0);
+                    cbCity.SelectedIndex, cbFloor.SelectedIndex),
+                    (Question2.Instance.watch.ElapsedMilliseconds - timer1.Interval));
                 btnQuestion2.Enabled = false;
                 //tabControl1.SelectedTab = tabPage3;
                 GlobalTimer.Tick += runQuestion3Timer;
@@ -77,26 +85,24 @@ namespace FinalProject
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void question1_Check(object sender, EventArgs e)
         {
             // Check if all the controls are full
             if ((cbDay.Text != string.Empty) && (cbMonth.Text != string.Empty) &&
                 (cbYear.Text != string.Empty) && (cbSeason.Text != string.Empty))
             {
+                Question1.Instance.StopWatch();
                 QuestionScore qs = new QuestionScore(Question1.Instance.checkAnswer(Int32.Parse(cbDay.Text),
-                    cbMonth.SelectedIndex, Int32.Parse(cbYear.Text), cbSeason.SelectedIndex), 0);
+                    cbMonth.SelectedIndex, Int32.Parse(cbYear.Text), cbSeason.SelectedIndex),
+                    (Question1.Instance.watch.ElapsedMilliseconds - timer1.Interval));
                 btnQuestion1.Enabled = false;
+
                 nextQuestion(qs);
             }
             else
             {
                 MessageBox.Show("יש למלא את כל השדות לפני שתוכל להמשיך בשאלה");
             }
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -131,17 +137,21 @@ namespace FinalProject
 
         private void nextQuestion(QuestionScore qsScore)
         {
-
+            // Save the question results
+            qsScore.Time /= 1000;
             this.currTest.saveScore(this.currQuestion, qsScore);
+
+            // Disable the last question
+            panels[this.currQuestion - 1].Visible = false;
+
+            // Procede to next question
             this.currQuestion++;
-            if (this.currQuestion == 5)
-            {
-                this.currQuestion++;
-            }
             tabControl1.SelectedIndex = this.currQuestion - 1;
+            panels[this.currQuestion - 1].Visible = true;
+
         }
 
-        private void btnQuestion6_Click(object sender, EventArgs e)
+        private void question6_Check(object sender, EventArgs e)
         {
             if (Question6.Instance.TimeSubstracted < 4)
             {
@@ -155,11 +165,6 @@ namespace FinalProject
                     if (Question6.Instance.TimeSubstracted == 4)
                     {
                         this.btnQuestion6.Text = "החסר והמשך";
-
-                        // Set button alignment
-                        this.btnQuestion6.Location =
-                            new Point((this.tabPage6.Size.Width -
-                        this.btnQuestion6.Size.Width) / 2, this.btnQuestion6.Location.Y);
                     }
 
                     // Set the cursor in the text box
@@ -176,7 +181,7 @@ namespace FinalProject
             }
         }
 
-        private void btnQuestion8_Click(object sender, EventArgs e)
+        private void question8_Check(object sender, EventArgs e)
         {
             MessageBox.Show(
                 Question8.Instance.checkAnswer(
@@ -190,7 +195,7 @@ namespace FinalProject
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void question4_Check(object sender, EventArgs e)
         {
             switch (Question4.getInstance().getNounsNumberShowed()) 
             {
@@ -238,7 +243,10 @@ namespace FinalProject
                         answersToCheck.Insert(1, this.nounPictureText2.Text);
                         answersToCheck.Insert(2, this.nounPictureText3.Text);
                         btnQuestion4.Enabled = false;
-                        nextQuestion(new QuestionScore(Question4.getInstance().checkAnswer(answersToCheck), 0));
+                        Question4.Instance.StopWatch();
+                        nextQuestion(new QuestionScore(
+                            Question4.getInstance().checkAnswer(answersToCheck), 
+                            Question4.Instance.watch.ElapsedMilliseconds - timer1.Interval));
                     }
                     else 
                     {
@@ -249,38 +257,101 @@ namespace FinalProject
             };
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void question5_Check(object sender, EventArgs e)
         {
-            //if ((this.nounMemoryText1.Text == string.Empty) || 
-            //    (this.nounMemoryText2.Text == string.Empty) ||
-            //    (this.nounMemoryText3.Text == string.Empty))
-            //{
-            //    MessageBox.Show("יש למלא את כל השדות לפני שתוכל להמשיך בשאלה");
-            //}
-            //else
-            //{
-            //    List<string> answersToCheck = new List<string>();
-            //    answersToCheck.Add(this.nounMemoryText1.Text);
-            //    answersToCheck.Add(this.nounMemoryText2.Text);
-            //    answersToCheck.Add(this.nounMemoryText3.Text);
-            //    MessageBox.Show(Question5.getInstance().checkAnswer(answersToCheck).ToString());
-            //    btnQuestion4.Enabled = false;
-            //    nextQuestion();
-            //}
+            if ((this.nounMemoryText1.Text == string.Empty) ||
+                (this.nounMemoryText2.Text == string.Empty) ||
+                (this.nounMemoryText3.Text == string.Empty))
+            {
+                MessageBox.Show("יש למלא את כל השדות לפני שתוכל להמשיך בשאלה");
+            }
+            else
+            {
+                List<string> answersToCheck = new List<string>();
+                answersToCheck.Add(this.nounMemoryText1.Text);
+                answersToCheck.Add(this.nounMemoryText2.Text);
+                answersToCheck.Add(this.nounMemoryText3.Text);
+                //MessageBox.Show(.ToString());
+                //btnQuestion4.Enabled = false;
+                Question5.Instance.StopWatch();
+                nextQuestion(new QuestionScore(
+                    Question5.getInstance().checkAnswer(answersToCheck), 
+                    Question5.Instance.watch.ElapsedMilliseconds - timer1.Interval));
+            }
         }
 
-        private void btnQuestion7_Click(object sender, EventArgs e)
+        private void question7_Check(object sender, EventArgs e)
         {
+            Question7.Instance.StopWatch();
             nextQuestion(new QuestionScore(
                 Question7.Instance.checkAnswer(
                     Convert.ToInt32(txtQuestion7Minutes.Value),
-                    Convert.ToInt32(txtQuestion7Hours.Value)), 0));
+                    Convert.ToInt32(txtQuestion7Hours.Value)), 
+                Question7.Instance.watch.ElapsedMilliseconds - timer1.Interval));
         }
 
         private void Questionaire_Load(object sender, EventArgs e)
         {
             // Select the first tab
             this.tabControl1.SelectedIndex = 0;
+        }
+
+        private void visibleChange(GroupBox gb)
+        {
+            if (gb.Visible)
+            {
+                this.AcceptButton = this.questionButtons[currQuestion - 1];
+
+                foreach (Control c in gb.Controls)
+                {
+                    c.Enabled = false;
+                }
+
+                this.timer1.Tick += newTabSelected;
+                this.timer1.Start();
+            }        
+        }
+
+        private void gbQuestion1_VisibleChanged(object sender, EventArgs e)
+        {
+            visibleChange(gbQuestion1);
+            Question1.Instance.StartWatch();
+        }
+
+        private void gbQuestion2_VisibleChanged(object sender, EventArgs e)
+        {
+            visibleChange(gbQuestion2);
+            Question2.Instance.StartWatch();
+        }
+
+        private void gbQuestion4_VisibleChanged(object sender, EventArgs e)
+        {
+            visibleChange(gbQuestion4);
+            Question4.Instance.StartWatch();
+        }
+
+        private void gbQuestion5_VisibleChanged(object sender, EventArgs e)
+        {
+            visibleChange(gbQuestion5);
+            Question5.Instance.StartWatch();
+        }
+
+        private void gbQuestion6_VisibleChanged(object sender, EventArgs e)
+        {
+            visibleChange(gbQuestion6);
+            Question6.Instance.StartWatch();
+        }
+
+        private void gbQuestion7_VisibleChanged(object sender, EventArgs e)
+        {
+            visibleChange(gbQuestion7);
+            Question7.Instance.StartWatch();
+        }
+
+        private void gbQuestion8_VisibleChanged(object sender, EventArgs e)
+        {
+            visibleChange(gbQuestion8);
+            Question8.Instance.StartWatch();
         }
     }
 }

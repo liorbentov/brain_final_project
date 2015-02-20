@@ -12,7 +12,7 @@ namespace FinalProject
     {
         private static T _instance = new T();
         private double m_dAnswerScore = 0;
-        public Stopwatch watch;
+        public Stopwatch watch = new Stopwatch();
 
         public static T Instance
         {

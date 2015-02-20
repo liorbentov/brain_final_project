@@ -34,14 +34,15 @@ namespace FinalProject
     public class Test
     {
         // Const Members
-        private const char CSV_SEPEARATOR = ',';
+        public const char CSV_SEPEARATOR = ',';
         private const string DICTIONARY_FILE_NAME = "nouns.csv";
         private const string NOUN_PIC_SUFFIX = ".png";
 
         // Data Members
         private string m_strUserID;
-        private double m_dScore;
-        private double m_dTime;
+        private User m_uUser;
+        private double m_dScore = 0;
+        private double m_dTime = 0;
         private DateTime m_dtDate;
         private QuestionScore[] m_questions = new QuestionScore[7];
 
@@ -50,16 +51,12 @@ namespace FinalProject
         public double Score { get { return this.m_dScore; } set { this.m_dScore = value; } }
         public double Time { get { return this.m_dTime; } set { this.m_dTime = value; } }
         public DateTime Date { get { return this.m_dtDate; } set { this.m_dtDate = value; } }
+        public User User { get { return this.m_uUser; } private set { this.m_uUser = value; } }
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public Test()
-        {
-            this.Date = DateTime.Now;
-            InitializeTestDictionary();
-            LoadNounsImages();
-        }
+        public Test() : this(DateTime.Now, string.Empty, 0, 0){}
 
         /// <summary>
         /// Constructor
@@ -67,12 +64,21 @@ namespace FinalProject
         public Test(DateTime date, string userID, double score, double time)
         {
             this.Date = date;
-            this.UserID = userID;
+            this.User = new User(userID);
             this.Score = score;
             this.Time = time;
 
-            InitializeTestDictionary();
-            LoadNounsImages();
+            // InitializeData
+            // Check if we already initialized the data
+            if (Program.testMistakesDictionary.Count == 0)
+            {
+                InitializeTestDictionary();
+            }
+
+            if (Program.nounsImages.Count == 0)
+            {
+                LoadNounsImages();
+            }
         }
 
         /// <summary>
@@ -93,7 +99,7 @@ namespace FinalProject
                 List<Mistake> mistakes = new List<Mistake>();
 
                 // Load all of it's common typos into the dictionary
-                for (int lineIndex = 1; lineIndex <= currLine.Length - 1; lineIndex+=2)
+                for (int lineIndex = 1; lineIndex <= currLine.Length - 1; lineIndex += 2)
                 {
                     if (currLine[lineIndex] != string.Empty)
                     {
@@ -106,14 +112,7 @@ namespace FinalProject
                     }
                 }
 
-                try
-                {
-                    Program.testMistakesDictionary.Add(currLine[0], mistakes);
-                }
-                catch (Exception ex)
-                {
-                    System.Windows.Forms.MessageBox.Show(ex.Message);
-                }
+                Program.testMistakesDictionary.Add(currLine[0], mistakes);
             }
         }
 
@@ -142,8 +141,14 @@ namespace FinalProject
 
         public void endTest()
         {
-            // Get Avarage for score
-            // Get Avarage for time
+            // Calculate score and time
+            foreach (QuestionScore curr in this.m_questions)
+            {
+                this.Score += curr.Score;
+                this.Time += curr.Time;
+            }
+
+            saveTestToFile();
         }
 
         /// <summary>
@@ -164,13 +169,14 @@ namespace FinalProject
             // Set the data to one line
             string strData = Date.ToShortDateString() +
                 CSV_SEPEARATOR + Date.ToShortTimeString() +
-                CSV_SEPEARATOR + UserID + CSV_SEPEARATOR + Score +
-                CSV_SEPEARATOR + Time;
+                CSV_SEPEARATOR + User.ID + CSV_SEPEARATOR + Score +
+                CSV_SEPEARATOR + Time.ToString().Substring(0, 5);
             
             // Add the questions to the data string
             foreach (QuestionScore current in m_questions)
             {
-                strData += (CSV_SEPEARATOR +current.Score + CSV_SEPEARATOR + current.Time);
+                strData += (CSV_SEPEARATOR + current.Score.ToString() + 
+                    CSV_SEPEARATOR + current.Time.ToString());
             }
 
             // Write the line in the file
@@ -199,6 +205,7 @@ namespace FinalProject
         private double m_dScoreAvearage;
         private double m_dTimeAvearage;
 
+        public string ID { get { return this.m_strID; } }
         public List<Test> PreviousTest { get { return m_lPreviousTest; } set { m_lPreviousTest = value; } }
         public double ScoreAvearage { get { return m_dScoreAvearage; } set { m_dScoreAvearage = value; } }
         public double TimeAvearage { get { return m_dTimeAvearage; } set { m_dTimeAvearage = value; } }
@@ -225,6 +232,12 @@ namespace FinalProject
             FileStream fsTestResults = new FileStream(@"../../TestsResults.csv", FileMode.Open, FileAccess.Read);
             StreamReader srReader = new StreamReader(fsTestResults);
 
+            // Read the first line because it is the header
+            if (!srReader.EndOfStream)
+            {
+                srReader.ReadLine();
+            }
+
             // Read the data and differs the data of the current user
             while (!srReader.EndOfStream)
             {
@@ -232,15 +245,16 @@ namespace FinalProject
                 currLine = srReader.ReadLine();
                 
                 // Check if the row belongs to the current user
-                string[] data = currLine.Split(';');
+                string[] data = currLine.Split(Test.CSV_SEPEARATOR);
 
                 // If so, insert the data to arrays
                 if (data[2].Equals(this.m_strID))
                 {
-                    // Set the date for the test object
-                    DateTime dt = Convert.ToDateTime(data[0]+" "+data[1]);
-
-                    Test tCurr = new Test(dt, data[2], double.Parse(data[3]), double.Parse((data[4]))); 
+                    Test tCurr = new Test();
+                    tCurr.Date = convertStringsToDate(data[0], data[1]);
+                    tCurr.UserID = data[2];
+                    tCurr.Score = double.Parse(data[3]);
+                    tCurr.Time = double.Parse(data[4]);
 
                     // Insert the test to the list
                     m_lPreviousTest.Add(tCurr);
@@ -260,6 +274,15 @@ namespace FinalProject
             // Calc Average
             m_dScoreAvearage = dScores / nTestCounter;
             m_dTimeAvearage = dTime / nTestCounter;
+        }
+
+        private DateTime convertStringsToDate(string strDate, string strTime)
+        {
+            return (new DateTime(Int32.Parse(strDate.Split('/')[2]),
+                Int32.Parse(strDate.Split('/')[1]),
+                Int32.Parse(strDate.Split('/')[0]),
+                Int32.Parse(strTime.Split(':')[0]),
+                Int32.Parse(strTime.Split(':')[1]), 0));
         }
     }
 }

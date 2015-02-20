@@ -216,6 +216,8 @@ namespace FinalProject
             this.ScoreAvearage = 0;
             this.TimeAvearage = 0;
             this.PreviousTest = new List<Test>();
+
+            this.getUserTests();
         }
 
         public void getUserTests()

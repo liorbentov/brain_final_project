@@ -38,16 +38,79 @@ namespace FinalProject
             pNewTest.Visible = false;
             pResults.Visible = true;
 
+            // Check if there are previous test
+            if (tNew.User.PreviousTest.Count == 0)
+            {
+                this.pTestResults.Location = new Point(54, 40);
+                this.pAvg.Visible = false;
+            }
+            else
+            {
+                this.pTestResults.Location = new Point(101, 49);
+                this.pAvg.Visible = true;
+                
+                // Set the avg and the diff
+                this.lblScoreAvg.Text = tNew.User.ScoreAvearage.ToString();
+                this.lblTimeAvg.Text = tNew.User.TimeAvearage.ToString();
+                this.lblScoreDiff.Text = (tNew.Score - tNew.User.ScoreAvearage).ToString();
+                this.lblTimeDiff.Text = (tNew.Time - tNew.User.TimeAvearage).ToString();
+
+                // Set diff color
+                if ((tNew.Score - tNew.User.ScoreAvearage) < 0)
+                {
+                    this.lblScoreDiff.ForeColor = Color.Red;
+                }
+                else
+                {
+                    if (tNew.Score == tNew.User.ScoreAvearage)
+                    {
+                        this.lblScoreDiff.ForeColor = Color.Blue;
+                    }
+                    else 
+                    {
+                        this.lblScoreDiff.ForeColor = Color.Green;
+                    }
+                }
+
+                if ((tNew.Time - tNew.User.TimeAvearage) < 0)
+                {
+                    this.lblTimeDiff.ForeColor = Color.Red;
+                }
+                else
+                {
+                    if (tNew.Time == tNew.User.TimeAvearage)
+                    {
+                        this.lblTimeDiff.ForeColor = Color.Blue;
+                    }
+                    else
+                    {
+                        this.lblTimeDiff.ForeColor = Color.Green;
+                    }
+                }
+            }
+
             tNew.endTest();
             this.lblScore.Text = tNew.Score.ToString();
             this.lblTime.Text = tNew.Time.ToString();
-
-            tNew.User.getUserTests();
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
+            tNew.User.getUserTests();
             new UserTestLog(tNew.User.PreviousTest).Show();
+        }
+
+        private void btnNewTest_Click(object sender, EventArgs e)
+        {
+            // Create new Test
+            tNew = new Test(DateTime.Now, tNew.UserID, 0, 0);
+
+            // Display questions
+            Questionaire questionaire = new Questionaire(tNew);
+            questionaire.FormClosed += questionaire_FormClosed;
+            questionaire.Show();
+
+            this.Hide();
         }
     }
 }

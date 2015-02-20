@@ -38,6 +38,14 @@ namespace FinalProject
             pNewTest.Visible = false;
             pResults.Visible = true;
 
+            // Calculate this test's results
+            tNew.endTest();
+            this.lblScore.Text = tNew.Score.ToString();
+            this.lblTime.Text = tNew.Time.ToString();
+
+            // Get user's previous tests
+            tNew.User.getUserTests();
+
             // Check if there are previous test
             if (tNew.User.PreviousTest.Count == 0)
             {
@@ -54,6 +62,8 @@ namespace FinalProject
                 this.lblTimeAvg.Text = tNew.User.TimeAvearage.ToString();
                 this.lblScoreDiff.Text = (tNew.Score - tNew.User.ScoreAvearage).ToString();
                 this.lblTimeDiff.Text = (tNew.Time - tNew.User.TimeAvearage).ToString();
+                this.lblTimeDiff.Text = this.lblTimeDiff.Text.Substring(0,
+                    this.lblTimeDiff.Text.IndexOf('.') + 1);
 
                 // Set diff color
                 if ((tNew.Score - tNew.User.ScoreAvearage) < 0)
@@ -72,7 +82,7 @@ namespace FinalProject
                     }
                 }
 
-                if ((tNew.Time - tNew.User.TimeAvearage) < 0)
+                if ((tNew.Time - tNew.User.TimeAvearage) > 0)
                 {
                     this.lblTimeDiff.ForeColor = Color.Red;
                 }
@@ -89,9 +99,8 @@ namespace FinalProject
                 }
             }
 
-            tNew.endTest();
-            this.lblScore.Text = tNew.Score.ToString();
-            this.lblTime.Text = tNew.Time.ToString();
+            // Save results
+            tNew.saveTestToFile();
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
@@ -102,15 +111,7 @@ namespace FinalProject
 
         private void btnNewTest_Click(object sender, EventArgs e)
         {
-            // Create new Test
-            tNew = new Test(DateTime.Now, tNew.UserID, 0, 0);
-
-            // Display questions
-            Questionaire questionaire = new Questionaire(tNew);
-            questionaire.FormClosed += questionaire_FormClosed;
-            questionaire.Show();
-
-            this.Hide();
+            btnStartTest_Click(sender, e);
         }
     }
 }

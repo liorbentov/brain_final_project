@@ -141,14 +141,20 @@ namespace FinalProject
             qsScore.Time /= 1000;
             this.currTest.saveScore(this.currQuestion, qsScore);
 
-            // Disable the last question
-            panels[this.currQuestion - 1].Visible = false;
+            if (this.currQuestion == 8)
+            {
+                this.Close();
+            }
+            else
+            {
+                // Disable the last question
+                panels[this.currQuestion - 1].Visible = false;
 
-            // Procede to next question
-            this.currQuestion++;
-            tabControl1.SelectedIndex = this.currQuestion - 1;
-            panels[this.currQuestion - 1].Visible = true;
-
+                // Procede to next question
+                this.currQuestion++;
+                tabControl1.SelectedIndex = this.currQuestion - 1;
+                panels[this.currQuestion - 1].Visible = true;
+            }
         }
 
         private void question6_Check(object sender, EventArgs e)
@@ -170,16 +176,23 @@ namespace FinalProject
             }
             else
             {
-                nextQuestion(new QuestionScore(Question6.Instance.AnswerScore, 0));
+                Question6.Instance.StopWatch();
+                nextQuestion(new QuestionScore(Question6.Instance.AnswerScore, 
+                    Question6.Instance.watch.ElapsedMilliseconds - 
+                    timer1.Interval));
             }
         }
 
         private void question8_Check(object sender, EventArgs e)
         {
-            MessageBox.Show(
-                Question8.Instance.checkAnswer(
-                    Convert.ToInt32(txtQuestion8Minutes.Value), 
-                    Convert.ToInt32(txtQuestion8Hour.Value)).ToString());
+            Question8.Instance.StopWatch();
+            nextQuestion(
+                new QuestionScore(
+                    Question8.Instance.checkAnswer(
+                    Convert.ToInt32(txtQuestion8Minutes.Value),
+                    Convert.ToInt32(txtQuestion8Hour.Value)),
+                    Question8.Instance.watch.ElapsedMilliseconds -
+                    timer1.Interval));
             this.Close();
         }
 

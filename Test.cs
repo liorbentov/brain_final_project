@@ -147,24 +147,33 @@ namespace FinalProject
                 this.Score += curr.Score;
                 this.Time += curr.Time;
             }
-
-            saveTestToFile();
         }
 
         /// <summary>
         /// Save the current question score
         /// </summary>
-        /// <param name="index">Question Index (1-7)</param>
+        /// <param name="index">Question Index (1-8)</param>
         /// <param name="score">Question Score</param>
         public void saveScore(int index, QuestionScore score)
         {
-            this.m_questions[index - 1] = score;
+            // Ignore index == 3 because it's not really a question
+            if (index != 3)
+            {
+                if (index < 3)
+                {
+                    this.m_questions[index - 1] = score;
+                }
+                else
+                {
+                    this.m_questions[index - 2] = score;
+                }
+            }
         }
 
         /// <summary>
         /// Save the test results to file
         /// </summary>
-        private void saveTestToFile()
+        public void saveTestToFile()
         {
             // Set the data to one line
             string strData = Date.ToShortDateString() +
@@ -216,8 +225,6 @@ namespace FinalProject
             this.ScoreAvearage = 0;
             this.TimeAvearage = 0;
             this.PreviousTest = new List<Test>();
-
-            this.getUserTests();
         }
 
         public void getUserTests()

@@ -13,7 +13,6 @@ namespace FinalProject
         private List<string> lstAvailableNouns;
         private List<string> lstShowedNouns;
         private Random nounsRandom;
-        private static Question4 instance;
 
         public Question4()
         {
@@ -22,16 +21,6 @@ namespace FinalProject
             lstShowedNouns = new List<string>();
             nounsRandom = new Random();
             this.AnswerScore = 3;
-        }
-
-        public static Question4 getInstance()
-        {
-            if (instance == null)
-            {
-                instance = new Question4();
-            }
-
-            return instance;
         }
 
         public string getNextNoun()

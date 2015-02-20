@@ -35,21 +35,30 @@ namespace FinalProject
             this.panels = new GroupBox[] { this.gbQuestion1, this.gbQuestion2, this.gbQuestion3, 
                 this.gbQuestion4, this.gbQuestion5, this.gbQuestion6, this.gbQuestion7,
                 this.gbQuestion8};
+
+            Question1.Instance.reset();
+            Question2.Instance.reset();
+            Question3.Instance.reset();
+            Question4.Instance.reset();
+            Question5.Instance.reset();
+            Question6.Instance.reset();
+            Question7.Instance.reset();
+            Question8.Instance.reset();
         }
 
         public void runQuestion3Timer(object sender, EventArgs e)
         {
-            if (Question3.getInstance().getNounsNumberShowed() == 3)
+            if (Question3.Instance.getNounsNumberShowed() == 3)
             {
                 GlobalTimer.Tick -= runQuestion3Timer;
                 GlobalTimer.Stop();
                 this.nounPicture1.Image =
-                    Question4.getInstance().getNextNounBitmap(Question4.getInstance().getNextNoun());
+                    Question4.Instance.getNextNounBitmap(Question4.Instance.getNextNoun());
                 nextQuestion(new QuestionScore());
             }
             else
             {
-                lblRandomNouns.Text = Question3.getInstance().getNextNoun();
+                lblRandomNouns.Text = Question3.Instance.getNextNoun();
             }
         }
 
@@ -76,7 +85,7 @@ namespace FinalProject
                 //tabControl1.SelectedTab = tabPage3;
                 GlobalTimer.Tick += runQuestion3Timer;
                 GlobalTimer.Start();
-                lblRandomNouns.Text = Question3.getInstance().getNextNoun();
+                lblRandomNouns.Text = Question3.Instance.getNextNoun();
                 nextQuestion(qs);
             }
             else
@@ -203,16 +212,16 @@ namespace FinalProject
 
         private void question4_Check(object sender, EventArgs e)
         {
-            switch (Question4.getInstance().getNounsNumberShowed()) 
+            switch (Question4.Instance.getNounsNumberShowed()) 
             {
                 case (1) :
                 {
                     if (this.nounPictureText1.Text != string.Empty) {
                         nounPicture1.Visible = false;
                         nounPictureText1.Visible = false;
-                        nounPicture2.Image = 
-                            Question4.getInstance().getNextNounBitmap(
-                                Question4.getInstance().getNextNoun());
+                        nounPicture2.Image =
+                            Question4.Instance.getNextNounBitmap(
+                                Question4.Instance.getNextNoun());
                         nounPicture2.Visible = true;
                         nounPictureText2.Visible = true;
                         nounPictureText2.Focus();
@@ -228,9 +237,9 @@ namespace FinalProject
                     if (this.nounPictureText1.Text != string.Empty) {
                         nounPicture2.Visible = false;
                         nounPictureText2.Visible = false;
-                        nounPicture3.Image = 
-                            Question4.getInstance().getNextNounBitmap(
-                                Question4.getInstance().getNextNoun());
+                        nounPicture3.Image =
+                            Question4.Instance.getNextNounBitmap(
+                                Question4.Instance.getNextNoun());
                         nounPicture3.Visible = true;
                         nounPictureText3.Visible = true;
                         nounPictureText3.Focus();
@@ -251,7 +260,7 @@ namespace FinalProject
                         btnQuestion4.Enabled = false;
                         Question4.Instance.StopWatch();
                         nextQuestion(new QuestionScore(
-                            Question4.getInstance().checkAnswer(answersToCheck), 
+                            Question4.Instance.checkAnswer(answersToCheck), 
                             Question4.Instance.watch.ElapsedMilliseconds - timer1.Interval));
                     }
                     else 
@@ -279,7 +288,7 @@ namespace FinalProject
                 answersToCheck.Add(this.nounMemoryText3.Text);
                 Question5.Instance.StopWatch();
                 nextQuestion(new QuestionScore(
-                    Question5.getInstance().checkAnswer(answersToCheck), 
+                    Question5.Instance.checkAnswer(answersToCheck), 
                     Question5.Instance.watch.ElapsedMilliseconds - timer1.Interval));
             }
         }

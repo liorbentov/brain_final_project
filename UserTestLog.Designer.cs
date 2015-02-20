@@ -48,14 +48,14 @@
             this.dataGridView1.ShowCellToolTips = false;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.ShowRowErrors = false;
-            this.dataGridView1.Size = new System.Drawing.Size(284, 262);
+            this.dataGridView1.Size = new System.Drawing.Size(343, 262);
             this.dataGridView1.TabIndex = 0;
             // 
             // UserTestLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(343, 262);
             this.Controls.Add(this.dataGridView1);
             this.Name = "UserTestLog";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

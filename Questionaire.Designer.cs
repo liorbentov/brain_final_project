@@ -72,7 +72,6 @@
             this.nounMemoryText2 = new System.Windows.Forms.TextBox();
             this.nounMemoryText1 = new System.Windows.Forms.TextBox();
             this.btnQuestion6 = new System.Windows.Forms.Button();
-            this.txtQuestion6 = new System.Windows.Forms.TextBox();
             this.lbl100 = new System.Windows.Forms.Label();
             this.lblDesc6 = new System.Windows.Forms.Label();
             this.btnQuestion7 = new System.Windows.Forms.Button();
@@ -96,6 +95,7 @@
             this.gbQuestion6 = new System.Windows.Forms.GroupBox();
             this.gbQuestion7 = new System.Windows.Forms.GroupBox();
             this.gbQuestion8 = new System.Windows.Forms.GroupBox();
+            this.txtQuestion6 = new System.Windows.Forms.NumericUpDown();
             this.analogClock1 = new FinalProject.AnalogClock();
             this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nounPicture1)).BeginInit();
@@ -113,6 +113,7 @@
             this.gbQuestion6.SuspendLayout();
             this.gbQuestion7.SuspendLayout();
             this.gbQuestion8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQuestion6)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -722,14 +723,6 @@
             this.btnQuestion6.UseVisualStyleBackColor = true;
             this.btnQuestion6.Click += new System.EventHandler(this.question6_Check);
             // 
-            // txtQuestion6
-            // 
-            this.txtQuestion6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtQuestion6.Location = new System.Drawing.Point(123, 114);
-            this.txtQuestion6.Name = "txtQuestion6";
-            this.txtQuestion6.Size = new System.Drawing.Size(100, 23);
-            this.txtQuestion6.TabIndex = 19;
-            // 
             // lbl100
             // 
             this.lbl100.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -871,7 +864,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 3000;
+            this.timer1.Interval = 1000;
             // 
             // gbQuestion1
             // 
@@ -978,9 +971,9 @@
             // 
             this.gbQuestion6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gbQuestion6.BackColor = System.Drawing.SystemColors.Control;
+            this.gbQuestion6.Controls.Add(this.txtQuestion6);
             this.gbQuestion6.Controls.Add(this.btnQuestion6);
             this.gbQuestion6.Controls.Add(this.lblDesc6);
-            this.gbQuestion6.Controls.Add(this.txtQuestion6);
             this.gbQuestion6.Controls.Add(this.lbl100);
             this.gbQuestion6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.gbQuestion6.Location = new System.Drawing.Point(0, 0);
@@ -1031,6 +1024,13 @@
             this.gbQuestion8.Text = "סעיף 8";
             this.gbQuestion8.Visible = false;
             this.gbQuestion8.VisibleChanged += new System.EventHandler(this.gbQuestion8_VisibleChanged);
+            // 
+            // txtQuestion6
+            // 
+            this.txtQuestion6.Location = new System.Drawing.Point(123, 114);
+            this.txtQuestion6.Name = "txtQuestion6";
+            this.txtQuestion6.Size = new System.Drawing.Size(100, 23);
+            this.txtQuestion6.TabIndex = 21;
             // 
             // analogClock1
             // 
@@ -1090,6 +1090,7 @@
             this.gbQuestion7.PerformLayout();
             this.gbQuestion8.ResumeLayout(false);
             this.gbQuestion8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQuestion6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1152,7 +1153,6 @@
         private System.Windows.Forms.NumericUpDown txtQuestion7Minutes;
         private System.Windows.Forms.NumericUpDown txtQuestion7Hours;
         private System.Windows.Forms.Button btnQuestion6;
-        private System.Windows.Forms.TextBox txtQuestion6;
         private System.Windows.Forms.Label lbl100;
         private System.Windows.Forms.Button btnQuestion7;
         private System.Windows.Forms.Timer timer1;
@@ -1164,6 +1164,7 @@
         private System.Windows.Forms.GroupBox gbQuestion6;
         private System.Windows.Forms.GroupBox gbQuestion7;
         private System.Windows.Forms.GroupBox gbQuestion8;
+        private System.Windows.Forms.NumericUpDown txtQuestion6;
     }
 }
 

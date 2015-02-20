@@ -22,6 +22,7 @@ namespace FinalProject
         private void UserTestLog_Load(object sender, EventArgs e)
         {
             BindGrid();
+            this.dataGridView1.Sort(this.dataGridView1.Columns[0], ListSortDirection.Descending);
         }
 
         private void BindGrid()

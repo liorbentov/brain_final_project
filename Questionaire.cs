@@ -155,25 +155,18 @@ namespace FinalProject
         {
             if (Question6.Instance.TimeSubstracted < 4)
             {
-                if (this.txtQuestion6.Text != string.Empty)
-                {
-                    Question6.Instance.checkAnswer(Int32.Parse(this.txtQuestion6.Text));
-                    lbl100.Text = this.txtQuestion6.Text;
-                    this.txtQuestion6.Clear();
+                Question6.Instance.checkAnswer(Int32.Parse(this.txtQuestion6.Text));
+                lbl100.Text = this.txtQuestion6.Text;
 
-                    // Check if it's the last time
-                    if (Question6.Instance.TimeSubstracted == 4)
-                    {
-                        this.btnQuestion6.Text = "החסר והמשך";
-                    }
-
-                    // Set the cursor in the text box
-                    this.txtQuestion6.Focus();
-                }
-                else
+                // Check if it's the last time
+                if (Question6.Instance.TimeSubstracted == 4)
                 {
-                    MessageBox.Show("Test");
+                    this.btnQuestion6.Text = "החסר והמשך";
                 }
+
+                // Set the cursor in the text box
+                this.txtQuestion6.Select();
+                this.txtQuestion6.Select(0, this.txtQuestion6.Text.Length);
             }
             else
             {
@@ -271,8 +264,6 @@ namespace FinalProject
                 answersToCheck.Add(this.nounMemoryText1.Text);
                 answersToCheck.Add(this.nounMemoryText2.Text);
                 answersToCheck.Add(this.nounMemoryText3.Text);
-                //MessageBox.Show(.ToString());
-                //btnQuestion4.Enabled = false;
                 Question5.Instance.StopWatch();
                 nextQuestion(new QuestionScore(
                     Question5.getInstance().checkAnswer(answersToCheck), 
@@ -327,18 +318,23 @@ namespace FinalProject
         private void gbQuestion4_VisibleChanged(object sender, EventArgs e)
         {
             visibleChange(gbQuestion4);
+            this.nounPictureText1.SelectAll();
             Question4.Instance.StartWatch();
         }
 
         private void gbQuestion5_VisibleChanged(object sender, EventArgs e)
         {
             visibleChange(gbQuestion5);
+            this.nounMemoryText1.Select();
+            this.nounMemoryText1.SelectAll();
             Question5.Instance.StartWatch();
         }
 
         private void gbQuestion6_VisibleChanged(object sender, EventArgs e)
         {
             visibleChange(gbQuestion6);
+            this.txtQuestion6.Select();
+            this.txtQuestion6.Select(0, 1);
             Question6.Instance.StartWatch();
         }
 

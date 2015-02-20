@@ -106,7 +106,14 @@ namespace FinalProject
                     }
                 }
 
-                Program.testMistakesDictionary.Add(currLine[0], mistakes);
+                try
+                {
+                    Program.testMistakesDictionary.Add(currLine[0], mistakes);
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show(ex.Message);
+                }
             }
         }
 

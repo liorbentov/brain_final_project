@@ -32,7 +32,8 @@ namespace FinalProject
 
         void questionaire_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Close();
+            //this.Close();
+            this.Show();
         }
     }
 }

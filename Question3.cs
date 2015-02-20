@@ -8,31 +8,21 @@ using System.Windows.Forms;
 
 namespace FinalProject
 {
-    public class Question3
+    public class Question3 : Question<Question3>
     {
         private int nNounsShowed;
         private List<string> lstAvailableNouns;
         private List<string> lstShowedNouns;
         private Random nounsRandom;
-        private static Question3 instance;
 
-        private Question3()
+        public Question3()
         {
             nNounsShowed = 0;
             lstAvailableNouns = new List<string>(Program.testMistakesDictionary.Keys);
             lstShowedNouns = new List<string>();
             nounsRandom = new Random();
         }
-
-        public static Question3 getInstance()
-        {
-            if (instance == null)
-            {
-                instance = new Question3();
-            }
-
-            return instance;
-        }
+        
 
         public string getNextNoun()
         {
@@ -52,11 +42,6 @@ namespace FinalProject
         public List<string> getNounsShowed()
         {
             return lstShowedNouns;
-        }
-
-        public double checkAnswer(int nCountryAnswer, int nCityAnswer, int nFloorAnswer)
-        {
-            return 0;
         }
     }
 }

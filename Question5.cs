@@ -8,21 +8,10 @@ namespace FinalProject
 {
     public class Question5 : Question<Question4>
     {
-        private static Question5 instance;
 
         public Question5()
         {
             this.AnswerScore = 3;
-        }
-
-        public static Question5 getInstance()
-        {
-            if (instance == null)
-            {
-                instance = new Question5();
-            }
-
-            return instance;
         }
 
         public double checkAnswer(List<string> answersToCheck)
@@ -32,11 +21,11 @@ namespace FinalProject
                 bool bIsAnswerFound = false;
                 string currAnswer = answersToCheck[currAnswerIndex];
 
-                for (int correctAnswerIndex = 0; 
-                        correctAnswerIndex < Question3.getInstance().getNounsShowed().Count; 
+                for (int correctAnswerIndex = 0;
+                        correctAnswerIndex < Question3.Instance.getNounsShowed().Count; 
                         correctAnswerIndex++)
                 {
-                    string correctAnswer = Question3.getInstance().getNounsShowed()[correctAnswerIndex];
+                    string correctAnswer = Question3.Instance.getNounsShowed()[correctAnswerIndex];
 
                     if (correctAnswer != currAnswer)
                     {

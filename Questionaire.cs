@@ -359,7 +359,7 @@ namespace FinalProject
         private void gbQuestion8_VisibleChanged(object sender, EventArgs e)
         {
             visibleChange(gbQuestion8, Question8.Instance.watch);
-            analogClock1.setTime(new DateTime(0,0,0,Question8.Instance.Hour, Question8.Instance.Minutes, 0));
+            analogClock1.setTime(new DateTime(1,1,1,Question8.Instance.Hour, Question8.Instance.Minutes, 0));
         }
     }
 }

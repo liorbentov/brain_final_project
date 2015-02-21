@@ -7,12 +7,20 @@ using System.Threading.Tasks;
 
 namespace FinalProject
 {
+    /// <summary>
+    /// This class handles the second class of the test:
+    /// The user has to insert the current location
+    /// </summary>
     public class Question2 : Question<Question2>
     {
+        // Variable definition
         private int m_nCity;
         private int m_nCountry;
         private int m_nFloor;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Question2()
         {
             // Get correct data from configuration
@@ -24,11 +32,19 @@ namespace FinalProject
             this.AnswerScore = 3;
         }
 
+        /// <summary>
+        /// This method calculate the questions score according to the user answers
+        /// </summary>
+        /// <param name="nCountryAnswer">int. the user answer for the current country</param>
+        /// <param name="nCityAnswer">int. the user answer for the current city</param>
+        /// <param name="nFloorAnswer">int. the user answer for the current floor</param>
+        /// <returns>double. The calculated score for the current question</returns>
         public double checkAnswer(int nCountryAnswer, int nCityAnswer, int nFloorAnswer)
         {
             // City
             if (nCityAnswer != this.m_nCity)
             {
+                // Checks city before/after the currrent
                 if ((nCityAnswer == this.m_nCity - 1) || (nCityAnswer == this.m_nCity + 1))
                 {
                     this.AnswerScore -= 0.5;
@@ -42,6 +58,7 @@ namespace FinalProject
             // Country
             if (nCountryAnswer != (this.m_nCountry))
             {
+                // Checks country before/after the currrent
                 if ((nCountryAnswer == this.m_nCountry - 1) || (nCountryAnswer == this.m_nCountry + 1))
                 {
                     this.AnswerScore -= 0.5;
@@ -55,6 +72,7 @@ namespace FinalProject
             // Check Floor
             if (nFloorAnswer != this.m_nFloor)
             {
+                // Checks floor before/after the currrent
                 if ((nFloorAnswer == this.m_nFloor - 1) || (nFloorAnswer == this.m_nFloor + 1))
                 {
                     this.AnswerScore -= 0.5;

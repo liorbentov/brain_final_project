@@ -7,13 +7,21 @@ using System.Threading.Tasks;
 
 namespace FinalProject
 {
+    /// <summary>
+    /// This class handles the first class of the test:
+    /// The user has to insert the current date
+    /// </summary>
     public class Question1 : Question<Question1>
     {
+        // Variables defintion
         private int m_nDay;
         private int m_nMonth;
         private int m_nYear;
         private int m_nSeason;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Question1()
         {
             // Get correct data from configuration
@@ -26,11 +34,20 @@ namespace FinalProject
             this.AnswerScore = 4;
         }
 
+        /// <summary>
+        /// This method calculate the questions score according to the user answers
+        /// </summary>
+        /// <param name="nDayAnswer">int. the user answer for the current day</param>
+        /// <param name="nMonthAnswer">int. the user answer for the current month</param>
+        /// <param name="nYearAnswer">int. the user answer for the current year</param>
+        /// <param name="nSeasonAnswer">int. the user answer for the current season</param>
+        /// <returns>double. The calculated score for the current question</returns>
         public double checkAnswer(int nDayAnswer, int nMonthAnswer, int nYearAnswer, int nSeasonAnswer)
         {
             // Day
             if (nDayAnswer != this.m_nDay)
             {
+                // Checks day before/after the currrent
                 if ((nDayAnswer == this.m_nDay - 1) || (nDayAnswer == this.m_nDay + 1))
                 {
                     this.AnswerScore -= 0.5;
@@ -44,6 +61,7 @@ namespace FinalProject
             // Month
             if (nMonthAnswer != (this.m_nMonth))
             {
+                // Checks month before/after the currrent
                 if ((nMonthAnswer == this.m_nMonth - 1) || (nMonthAnswer == this.m_nMonth + 1))
                 {
                     this.AnswerScore -= 0.5;
@@ -54,9 +72,10 @@ namespace FinalProject
                 }
             }
 
-            // Check Year
+            // Year
             if (nYearAnswer != this.m_nYear)
             {
+                // Checks year before/after the currrent
                 if ((nYearAnswer == this.m_nYear - 1) || (nYearAnswer == this.m_nYear + 1))
                 {
                     this.AnswerScore -= 0.5;
@@ -67,9 +86,10 @@ namespace FinalProject
                 }
             }
 
-            // Check Season
+            // Season
             if (nSeasonAnswer != (this.m_nSeason))
             {
+                // Checks season before/after the currrent
                 if ((nSeasonAnswer == this.m_nSeason - 1) || (nSeasonAnswer == this.m_nSeason + 1))
                 {
                     this.AnswerScore -= 0.5;

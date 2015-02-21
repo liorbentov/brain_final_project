@@ -62,8 +62,8 @@ namespace FinalProject
                 this.lblTimeAvg.Text = tNew.User.TimeAvearage.ToString();
                 this.lblScoreDiff.Text = (tNew.Score - tNew.User.ScoreAvearage).ToString();
                 this.lblTimeDiff.Text = (tNew.Time - tNew.User.TimeAvearage).ToString();
-                this.lblTimeDiff.Text = this.lblTimeDiff.Text.Substring(0,
-                    this.lblTimeDiff.Text.IndexOf('.') + 1);
+                //this.lblTimeDiff.Text = this.lblTimeDiff.Text.Substring(0,
+                //    this.lblTimeDiff.Text.IndexOf('.') + 1);
 
                 // Set diff color
                 if ((tNew.Score - tNew.User.ScoreAvearage) < 0)
@@ -107,6 +107,7 @@ namespace FinalProject
         {
             tNew.User.getUserTests();
             new UserTestLog(tNew.User.PreviousTest).Show();
+            new UserLogChart(tNew.User.PreviousTest).Show();
         }
 
         private void btnNewTest_Click(object sender, EventArgs e)

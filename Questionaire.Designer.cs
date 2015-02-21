@@ -78,7 +78,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.txtQuestion7Minutes = new System.Windows.Forms.NumericUpDown();
             this.txtQuestion7Hours = new System.Windows.Forms.NumericUpDown();
-            this.label17 = new System.Windows.Forms.Label();
+            this.lblSentence = new System.Windows.Forms.Label();
             this.lblDesc7 = new System.Windows.Forms.Label();
             this.btnQuestion8 = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
@@ -93,9 +93,9 @@
             this.gbQuestion4 = new System.Windows.Forms.GroupBox();
             this.gbQuestion5 = new System.Windows.Forms.GroupBox();
             this.gbQuestion6 = new System.Windows.Forms.GroupBox();
+            this.txtQuestion6 = new System.Windows.Forms.NumericUpDown();
             this.gbQuestion7 = new System.Windows.Forms.GroupBox();
             this.gbQuestion8 = new System.Windows.Forms.GroupBox();
-            this.txtQuestion6 = new System.Windows.Forms.NumericUpDown();
             this.analogClock1 = new FinalProject.AnalogClock();
             this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nounPicture1)).BeginInit();
@@ -111,9 +111,9 @@
             this.gbQuestion4.SuspendLayout();
             this.gbQuestion5.SuspendLayout();
             this.gbQuestion6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQuestion6)).BeginInit();
             this.gbQuestion7.SuspendLayout();
             this.gbQuestion8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtQuestion6)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -784,16 +784,16 @@
             this.txtQuestion7Hours.Size = new System.Drawing.Size(47, 23);
             this.txtQuestion7Hours.TabIndex = 19;
             // 
-            // label17
+            // lblSentence
             // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label17.Location = new System.Drawing.Point(32, 61);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(299, 16);
-            this.label17.TabIndex = 17;
-            this.label17.Text = "אתמול בחמש וחצי אחרי הצהריים הלכנו עם אמא";
+            this.lblSentence.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSentence.AutoSize = true;
+            this.lblSentence.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.lblSentence.Location = new System.Drawing.Point(32, 61);
+            this.lblSentence.Name = "lblSentence";
+            this.lblSentence.Size = new System.Drawing.Size(299, 16);
+            this.lblSentence.TabIndex = 17;
+            this.lblSentence.Text = "אתמול בחמש וחצי אחרי הצהריים הלכנו עם אמא";
             // 
             // lblDesc7
             // 
@@ -985,6 +985,13 @@
             this.gbQuestion6.Visible = false;
             this.gbQuestion6.VisibleChanged += new System.EventHandler(this.gbQuestion6_VisibleChanged);
             // 
+            // txtQuestion6
+            // 
+            this.txtQuestion6.Location = new System.Drawing.Point(123, 114);
+            this.txtQuestion6.Name = "txtQuestion6";
+            this.txtQuestion6.Size = new System.Drawing.Size(100, 23);
+            this.txtQuestion6.TabIndex = 21;
+            // 
             // gbQuestion7
             // 
             this.gbQuestion7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -992,7 +999,7 @@
             this.gbQuestion7.Controls.Add(this.btnQuestion7);
             this.gbQuestion7.Controls.Add(this.lblDesc7);
             this.gbQuestion7.Controls.Add(this.label18);
-            this.gbQuestion7.Controls.Add(this.label17);
+            this.gbQuestion7.Controls.Add(this.lblSentence);
             this.gbQuestion7.Controls.Add(this.txtQuestion7Minutes);
             this.gbQuestion7.Controls.Add(this.txtQuestion7Hours);
             this.gbQuestion7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
@@ -1024,13 +1031,6 @@
             this.gbQuestion8.Text = "סעיף 8";
             this.gbQuestion8.Visible = false;
             this.gbQuestion8.VisibleChanged += new System.EventHandler(this.gbQuestion8_VisibleChanged);
-            // 
-            // txtQuestion6
-            // 
-            this.txtQuestion6.Location = new System.Drawing.Point(123, 114);
-            this.txtQuestion6.Name = "txtQuestion6";
-            this.txtQuestion6.Size = new System.Drawing.Size(100, 23);
-            this.txtQuestion6.TabIndex = 21;
             // 
             // analogClock1
             // 
@@ -1086,11 +1086,11 @@
             this.gbQuestion5.PerformLayout();
             this.gbQuestion6.ResumeLayout(false);
             this.gbQuestion6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtQuestion6)).EndInit();
             this.gbQuestion7.ResumeLayout(false);
             this.gbQuestion7.PerformLayout();
             this.gbQuestion8.ResumeLayout(false);
             this.gbQuestion8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtQuestion6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1147,7 +1147,7 @@
         private System.Windows.Forms.NumericUpDown txtQuestion8Hour;
         private System.Windows.Forms.Label lblDesc8;
         private System.Windows.Forms.Button btnQuestion8;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lblSentence;
         private System.Windows.Forms.Label lblDesc7;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.NumericUpDown txtQuestion7Minutes;

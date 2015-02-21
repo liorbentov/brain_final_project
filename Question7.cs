@@ -11,16 +11,18 @@ namespace FinalProject
     {
         private int m_nMinutes;
         private int m_nHours;
+        private string m_strSentence;
 
         public int Hour { get { return this.m_nHours; } private set { this.m_nHours = value; } }
         public int Minutes { get { return this.m_nMinutes; } private set { this.m_nMinutes = value; } }
-
+        public string Sentence { get { return this.m_strSentence; } private set { this.m_strSentence = value; } }
 
         public Question7()
         {
             // Get correct data from configuration
-            this.m_nMinutes = Int32.Parse(ConfigurationManager.AppSettings.Get("Question7Minutes"));
-            this.m_nHours = Int32.Parse(ConfigurationManager.AppSettings.Get("Question7Hours"));
+            this.Minutes = Int32.Parse(ConfigurationManager.AppSettings.Get("Question7Minutes"));
+            this.Hour = Int32.Parse(ConfigurationManager.AppSettings.Get("Question7Hours"));
+            this.Sentence = ConfigurationManager.AppSettings.Get("Question7Sentence");
 
             // Set the score to the max
             this.AnswerScore = 3;

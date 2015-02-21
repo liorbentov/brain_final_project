@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Threading;
+using System.Diagnostics;
 
 namespace FinalProject
 {
@@ -77,12 +78,10 @@ namespace FinalProject
             if ((cbCountry.Text != string.Empty) && (cbCity.Text != null) &&
                 (cbFloor.Text != string.Empty))
             {
-                Question2.Instance.StopWatch();
                 QuestionScore qs = new QuestionScore(Question2.Instance.checkAnswer(cbCountry.SelectedIndex,
                     cbCity.SelectedIndex, cbFloor.SelectedIndex),
-                    (Question2.Instance.watch.ElapsedMilliseconds - timer1.Interval));
-                btnQuestion2.Enabled = false;
-                //tabControl1.SelectedTab = tabPage3;
+                    (Question2.Instance.StopWatch() - timer1.Interval));
+            
                 GlobalTimer.Tick += runQuestion3Timer;
                 GlobalTimer.Start();
                 lblRandomNouns.Text = Question3.Instance.getNextNoun();
@@ -100,11 +99,9 @@ namespace FinalProject
             if ((cbDay.Text != string.Empty) && (cbMonth.Text != string.Empty) &&
                 (cbYear.Text != string.Empty) && (cbSeason.Text != string.Empty))
             {
-                Question1.Instance.StopWatch();
                 QuestionScore qs = new QuestionScore(Question1.Instance.checkAnswer(Int32.Parse(cbDay.Text),
                     cbMonth.SelectedIndex, Int32.Parse(cbYear.Text), cbSeason.SelectedIndex),
-                    (Question1.Instance.watch.ElapsedMilliseconds - timer1.Interval));
-                btnQuestion1.Enabled = false;
+                    (Question1.Instance.StopWatch() - timer1.Interval));
 
                 nextQuestion(qs);
             }
@@ -194,13 +191,12 @@ namespace FinalProject
 
         private void question8_Check(object sender, EventArgs e)
         {
-            Question8.Instance.StopWatch();
             nextQuestion(
                 new QuestionScore(
                     Question8.Instance.checkAnswer(
                     Convert.ToInt32(txtQuestion8Minutes.Value),
                     Convert.ToInt32(txtQuestion8Hour.Value)),
-                    Question8.Instance.watch.ElapsedMilliseconds -
+                    Question8.Instance.StopWatch() -
                     timer1.Interval));
             this.Close();
         }
@@ -258,10 +254,9 @@ namespace FinalProject
                         answersToCheck.Insert(1, this.nounPictureText2.Text);
                         answersToCheck.Insert(2, this.nounPictureText3.Text);
                         btnQuestion4.Enabled = false;
-                        Question4.Instance.StopWatch();
                         nextQuestion(new QuestionScore(
                             Question4.Instance.checkAnswer(answersToCheck), 
-                            Question4.Instance.watch.ElapsedMilliseconds - timer1.Interval));
+                            Question4.Instance.StopWatch() - timer1.Interval));
                     }
                     else 
                     {
@@ -286,21 +281,19 @@ namespace FinalProject
                 answersToCheck.Add(this.nounMemoryText1.Text);
                 answersToCheck.Add(this.nounMemoryText2.Text);
                 answersToCheck.Add(this.nounMemoryText3.Text);
-                Question5.Instance.StopWatch();
                 nextQuestion(new QuestionScore(
                     Question5.Instance.checkAnswer(answersToCheck), 
-                    Question5.Instance.watch.ElapsedMilliseconds - timer1.Interval));
+                    Question5.Instance.StopWatch() - timer1.Interval));
             }
         }
 
         private void question7_Check(object sender, EventArgs e)
         {
-            Question7.Instance.StopWatch();
             nextQuestion(new QuestionScore(
                 Question7.Instance.checkAnswer(
                     Convert.ToInt32(txtQuestion7Minutes.Value),
                     Convert.ToInt32(txtQuestion7Hours.Value)), 
-                Question7.Instance.watch.ElapsedMilliseconds - timer1.Interval));
+                Question7.Instance.StopWatch() - timer1.Interval));
         }
 
         private void Questionaire_Load(object sender, EventArgs e)
@@ -309,7 +302,7 @@ namespace FinalProject
             this.tabControl1.SelectedIndex = 0;
         }
 
-        private void visibleChange(GroupBox gb)
+        private void visibleChange(GroupBox gb, Stopwatch watch)
         {
             if (gb.Visible)
             {
@@ -320,6 +313,8 @@ namespace FinalProject
                     c.Enabled = false;
                 }
 
+                watch.Start();
+
                 this.timer1.Tick += newTabSelected;
                 this.timer1.Start();
             }        
@@ -327,49 +322,44 @@ namespace FinalProject
 
         private void gbQuestion1_VisibleChanged(object sender, EventArgs e)
         {
-            visibleChange(gbQuestion1);
-            Question1.Instance.StartWatch();
+            visibleChange(gbQuestion1, Question1.Instance.watch);
         }
 
         private void gbQuestion2_VisibleChanged(object sender, EventArgs e)
         {
-            visibleChange(gbQuestion2);
-            Question2.Instance.StartWatch();
+            visibleChange(gbQuestion2, Question2.Instance.watch);
         }
 
         private void gbQuestion4_VisibleChanged(object sender, EventArgs e)
         {
-            visibleChange(gbQuestion4);
+            visibleChange(gbQuestion4, Question4.Instance.watch);
             this.nounPictureText1.SelectAll();
-            Question4.Instance.StartWatch();
         }
 
         private void gbQuestion5_VisibleChanged(object sender, EventArgs e)
         {
-            visibleChange(gbQuestion5);
+            visibleChange(gbQuestion5, Question5.Instance.watch);
             this.nounMemoryText1.Select();
             this.nounMemoryText1.SelectAll();
-            Question5.Instance.StartWatch();
         }
 
         private void gbQuestion6_VisibleChanged(object sender, EventArgs e)
         {
-            visibleChange(gbQuestion6);
+            visibleChange(gbQuestion6, Question6.Instance.watch);
             this.txtQuestion6.Select();
             this.txtQuestion6.Select(0, 1);
-            Question6.Instance.StartWatch();
         }
 
         private void gbQuestion7_VisibleChanged(object sender, EventArgs e)
         {
-            visibleChange(gbQuestion7);
-            Question7.Instance.StartWatch();
+            visibleChange(gbQuestion7, Question7.Instance.watch);
+            lblSentence.Text = Question7.Instance.Sentence;
         }
 
         private void gbQuestion8_VisibleChanged(object sender, EventArgs e)
         {
-            visibleChange(gbQuestion8);
-            Question8.Instance.StartWatch();
+            visibleChange(gbQuestion8, Question8.Instance.watch);
+            analogClock1.setTime(new DateTime(0,0,0,Question8.Instance.Hour, Question8.Instance.Minutes, 0));
         }
     }
 }

@@ -19,6 +19,7 @@ namespace FinalProject
         int currQuestion = 0;
         Button[] questionButtons;
         GroupBox[] panels;
+        Control[] inputFields;
 
         public Questionaire(Test test)
         {
@@ -36,6 +37,12 @@ namespace FinalProject
             this.panels = new GroupBox[] { this.gbQuestion1, this.gbQuestion2, this.gbQuestion3, 
                 this.gbQuestion4, this.gbQuestion5, this.gbQuestion6, this.gbQuestion7,
                 this.gbQuestion8};
+
+            // Set question panels to be focused on load;
+            this.inputFields = new Control[] { 
+                null, null, null, 
+                this.nounPictureText1, this.nounMemoryText1, this.txtQuestion6, 
+                this.txtQuestion7Hours, this.txtQuestion8Hour};
 
             Question1.Instance.reset();
             Question2.Instance.reset();
@@ -70,6 +77,11 @@ namespace FinalProject
             foreach (Control c in this.panels[this.currQuestion - 1].Controls)
             {
                 c.Enabled = true;
+            }
+
+            if (inputFields[this.currQuestion - 1] != null)
+            {
+                inputFields[this.currQuestion - 1].Select();
             }
         }
 
@@ -230,7 +242,7 @@ namespace FinalProject
                 }
                 case (2) :
                 {
-                    if (this.nounPictureText1.Text != string.Empty) {
+                    if (this.nounPictureText2.Text != string.Empty) {
                         nounPicture2.Visible = false;
                         nounPictureText2.Visible = false;
                         nounPicture3.Image =

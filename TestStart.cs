@@ -16,6 +16,7 @@ namespace FinalProject
         public TestStart()
         {
             InitializeComponent();
+            this.txtUserID.Select();
         }
 
         private void btnStartTest_Click(object sender, EventArgs e)

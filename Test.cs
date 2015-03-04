@@ -235,7 +235,7 @@ namespace FinalProject
             this.PreviousTest.Clear();
 
             // Open file
-            FileStream fsTestResults = new FileStream(@"../../TestsResults.csv", FileMode.Open, FileAccess.Read);
+            FileStream fsTestResults = new FileStream(@"../../TestsResults.csv", FileMode.OpenOrCreate, FileAccess.Read);
             StreamReader srReader = new StreamReader(fsTestResults);
 
             // Read the first line because it is the header

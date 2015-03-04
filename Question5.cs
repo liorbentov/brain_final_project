@@ -10,7 +10,7 @@ namespace FinalProject
     /// This class handles the fifth class of the test:
     /// The user has to identify write all of the nouns from q3
     /// </summary>
-    public class Question5 : Question<Question4>
+    public class Question5 : Question<Question5>
     {
         /// <summary>
         /// Constructor

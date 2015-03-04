@@ -216,11 +216,11 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label8.Location = new System.Drawing.Point(26, 12);
+            this.label8.Location = new System.Drawing.Point(32, 12);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(23, 13);
             this.label8.TabIndex = 20;
-            this.label8.Text = "21/";
+            this.label8.Text = "23/";
             // 
             // lblTime
             // 

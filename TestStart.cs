@@ -33,74 +33,78 @@ namespace FinalProject
 
         void questionaire_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //this.Close();
-            this.Show();
-            pNewTest.Visible = false;
-            pResults.Visible = true;
-
-            // Calculate this test's results
-            tNew.endTest();
-            this.lblScore.Text = tNew.Score.ToString();
-            this.lblTime.Text = tNew.Time.ToString();
-
-            // Get user's previous tests
-            tNew.User.getUserTests();
-
-            // Check if there are previous test
-            if (tNew.User.PreviousTest.Count == 0)
+            if (!tNew.isOver())
             {
-                this.pTestResults.Location = new Point(54, 40);
-                this.pAvg.Visible = false;
+                this.Close();
             }
             else
             {
-                this.pTestResults.Location = new Point(101, 49);
-                this.pAvg.Visible = true;
-                
-                // Set the avg and the diff
-                this.lblScoreAvg.Text = tNew.User.ScoreAvearage.ToString();
-                this.lblTimeAvg.Text = tNew.User.TimeAvearage.ToString();
-                this.lblScoreDiff.Text = (tNew.Score - tNew.User.ScoreAvearage).ToString();
-                this.lblTimeDiff.Text = (tNew.Time - tNew.User.TimeAvearage).ToString();
-                //this.lblTimeDiff.Text = this.lblTimeDiff.Text.Substring(0,
-                //    this.lblTimeDiff.Text.IndexOf('.') + 1);
+                this.Show();
+                pNewTest.Visible = false;
+                pResults.Visible = true;
 
-                // Set diff color
-                if ((tNew.Score - tNew.User.ScoreAvearage) < 0)
+                // Calculate this test's results
+                tNew.endTest();
+                this.lblScore.Text = tNew.Score.ToString();
+                this.lblTime.Text = tNew.Time.ToString();
+
+                // Get user's previous tests
+                tNew.User.getUserTests();
+
+                // Check if there are previous test
+                if (tNew.User.PreviousTest.Count == 0)
                 {
-                    this.lblScoreDiff.ForeColor = Color.Red;
+                    this.pTestResults.Location = new Point(54, 40);
+                    this.pAvg.Visible = false;
                 }
                 else
                 {
-                    if (tNew.Score == tNew.User.ScoreAvearage)
-                    {
-                        this.lblScoreDiff.ForeColor = Color.Blue;
-                    }
-                    else 
-                    {
-                        this.lblScoreDiff.ForeColor = Color.Green;
-                    }
-                }
+                    this.pTestResults.Location = new Point(101, 49);
+                    this.pAvg.Visible = true;
 
-                if ((tNew.Time - tNew.User.TimeAvearage) > 0)
-                {
-                    this.lblTimeDiff.ForeColor = Color.Red;
-                }
-                else
-                {
-                    if (tNew.Time == tNew.User.TimeAvearage)
+                    // Set the avg and the diff
+                    this.lblScoreAvg.Text = setStringForResult(tNew.User.ScoreAvearage.ToString());
+                    this.lblTimeAvg.Text = setStringForResult(tNew.User.TimeAvearage.ToString());
+                    this.lblScoreDiff.Text = setStringForResult((tNew.Score - tNew.User.ScoreAvearage).ToString());
+                    this.lblTimeDiff.Text = setStringForResult((tNew.Time - tNew.User.TimeAvearage).ToString());
+
+                    // Set diff color
+                    if ((tNew.Score - tNew.User.ScoreAvearage) < 0)
                     {
-                        this.lblTimeDiff.ForeColor = Color.Blue;
+                        this.lblScoreDiff.ForeColor = Color.Red;
                     }
                     else
                     {
-                        this.lblTimeDiff.ForeColor = Color.Green;
+                        if (tNew.Score == tNew.User.ScoreAvearage)
+                        {
+                            this.lblScoreDiff.ForeColor = Color.Blue;
+                        }
+                        else
+                        {
+                            this.lblScoreDiff.ForeColor = Color.Green;
+                        }
+                    }
+
+                    if ((tNew.Time - tNew.User.TimeAvearage) > 0)
+                    {
+                        this.lblTimeDiff.ForeColor = Color.Red;
+                    }
+                    else
+                    {
+                        if (tNew.Time == tNew.User.TimeAvearage)
+                        {
+                            this.lblTimeDiff.ForeColor = Color.Blue;
+                        }
+                        else
+                        {
+                            this.lblTimeDiff.ForeColor = Color.Green;
+                        }
                     }
                 }
-            }
 
-            // Save results
-            tNew.saveTestToFile();
+                // Save results
+                tNew.saveTestToFile();
+            }
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
@@ -113,6 +117,16 @@ namespace FinalProject
         private void btnNewTest_Click(object sender, EventArgs e)
         {
             btnStartTest_Click(sender, e);
+        }
+
+        private string setStringForResult(string strToShow)
+        {
+            if (strToShow.Length > 6)
+            {
+                return (strToShow.Remove(6));
+            }
+                
+            return (strToShow);
         }
     }
 }

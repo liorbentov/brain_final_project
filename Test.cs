@@ -44,7 +44,7 @@ namespace FinalProject
         private double m_dScore = 0;
         private double m_dTime = 0;
         private DateTime m_dtDate;
-        private QuestionScore[] m_questions = new QuestionScore[7];
+        private List<QuestionScore> m_questions = new List<QuestionScore>();
 
         // Getters And Setters
         public string UserID { get { return this.m_strUserID; } set { this.m_strUserID = value; } }
@@ -131,12 +131,9 @@ namespace FinalProject
             }
         }
 
-        /// <summary>
-        /// Start the test (Questionaire)
-        /// </summary>
-        public void startTest()
+        public bool isOver()
         {
-
+            return (this.m_questions.Count == 7);
         }
 
         public void endTest()
@@ -161,11 +158,11 @@ namespace FinalProject
             {
                 if (index < 3)
                 {
-                    this.m_questions[index - 1] = score;
+                    this.m_questions.Insert(index - 1, score);
                 }
                 else
                 {
-                    this.m_questions[index - 2] = score;
+                    this.m_questions.Insert(index - 2, score);
                 }
             }
         }

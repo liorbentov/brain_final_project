@@ -136,5 +136,29 @@ namespace FinalProject
                 
             return (strToShow);
         }
+
+        private void btnHistoryNew_Click(object sender, EventArgs e)
+        {
+            if (this.txtUserID.Text == string.Empty)
+            {
+                MessageBox.Show("יש להזין תעודת זהות על מנת לצפות בהיסטוריה");
+            }
+            else
+            {
+                // Create new User
+                User user = new User(this.txtUserID.Text);
+                user.getUserTests();
+
+                // Check if there is previous data
+                if (user.PreviousTest.Count == 0)
+                {
+                    MessageBox.Show("לא קיים מידע קודם");
+                }
+                else
+                {
+                    new UserTestLog(user.PreviousTest).Show();
+                }
+            }
+        }
     }
 }

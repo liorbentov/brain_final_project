@@ -34,9 +34,11 @@ namespace FinalProject
     public class Test
     {
         // Const Members
-        public const char CSV_SEPEARATOR = ',';
+        public const char CSV_SEPARATOR = ',';
+        public const string RESULTS_FILE_NAME = "TestResults.csv";
         private const string DICTIONARY_FILE_NAME = "nouns.csv";
         private const string NOUN_PIC_SUFFIX = ".png";
+        private const int NUMBER_OF_QUESTIONS = 7;
 
         // Data Members
         private string m_strUserID;
@@ -95,7 +97,7 @@ namespace FinalProject
             while (!dictionarySR.EndOfStream)
             {
                 // Gets the correct noun
-                string[] currLine = dictionarySR.ReadLine().Split(CSV_SEPEARATOR);
+                string[] currLine = dictionarySR.ReadLine().Split(CSV_SEPARATOR);
                 List<Mistake> mistakes = new List<Mistake>();
 
                 // Load all of it's common typos into the dictionary
@@ -133,7 +135,7 @@ namespace FinalProject
 
         public bool isOver()
         {
-            return (this.m_questions.Count == 7);
+            return (this.m_questions.Count == NUMBER_OF_QUESTIONS);
         }
 
         public void endTest()
@@ -174,19 +176,19 @@ namespace FinalProject
         {
             // Set the data to one line
             string strData = Date.ToShortDateString() +
-                CSV_SEPEARATOR + Date.ToShortTimeString() +
-                CSV_SEPEARATOR + User.ID + CSV_SEPEARATOR + Score +
-                CSV_SEPEARATOR + Time.ToString().Substring(0, 5);
+                CSV_SEPARATOR + Date.ToShortTimeString() +
+                CSV_SEPARATOR + User.ID + CSV_SEPARATOR + Score +
+                CSV_SEPARATOR + Time.ToString().Substring(0, 5);
             
             // Add the questions to the data string
             foreach (QuestionScore current in m_questions)
             {
-                strData += (CSV_SEPEARATOR + current.Score.ToString() + 
-                    CSV_SEPEARATOR + current.Time.ToString());
+                strData += (CSV_SEPARATOR + current.Score.ToString() + 
+                    CSV_SEPARATOR + current.Time.ToString());
             }
 
             // Write the line in the file
-            using (StreamWriter w = File.AppendText(@"../../TestsResults.csv"))
+            using (StreamWriter w = File.AppendText(RESULTS_FILE_NAME))
             {
                 w.WriteLine(strData);
             }
@@ -201,94 +203,6 @@ namespace FinalProject
         {
             Score = score;
             Time = time;
-        }
-    }
-
-    public class User
-    {
-        private string m_strID;
-        private List<Test> m_lPreviousTest;
-        private double m_dScoreAvearage;
-        private double m_dTimeAvearage;
-
-        public string ID { get { return this.m_strID; } }
-        public List<Test> PreviousTest { get { return m_lPreviousTest; } set { m_lPreviousTest = value; } }
-        public double ScoreAvearage { get { return m_dScoreAvearage; } set { m_dScoreAvearage = value; } }
-        public double TimeAvearage { get { return m_dTimeAvearage; } set { m_dTimeAvearage = value; } }
-
-        public User(string ID)
-        {
-            this.m_strID = ID;
-            this.ScoreAvearage = 0;
-            this.TimeAvearage = 0;
-            this.PreviousTest = new List<Test>();
-        }
-
-        public void getUserTests()
-        {
-            string currLine;
-            int nTestCounter = 0;
-            double dScores = 0;
-            double dTime = 0;
-
-            // Clear list
-            this.PreviousTest.Clear();
-
-            // Open file
-            FileStream fsTestResults = new FileStream(@"../../TestsResults.csv", FileMode.OpenOrCreate, FileAccess.Read);
-            StreamReader srReader = new StreamReader(fsTestResults);
-
-            // Read the first line because it is the header
-            if (!srReader.EndOfStream)
-            {
-                srReader.ReadLine();
-            }
-
-            // Read the data and differs the data of the current user
-            while (!srReader.EndOfStream)
-            {
-                // Read the next line
-                currLine = srReader.ReadLine();
-                
-                // Check if the row belongs to the current user
-                string[] data = currLine.Split(Test.CSV_SEPEARATOR);
-
-                // If so, insert the data to arrays
-                if (data[2].Equals(this.m_strID))
-                {
-                    Test tCurr = new Test();
-                    tCurr.Date = convertStringsToDate(data[0], data[1]);
-                    tCurr.UserID = data[2];
-                    tCurr.Score = double.Parse(data[3]);
-                    tCurr.Time = double.Parse(data[4]);
-
-                    // Insert the test to the list
-                    m_lPreviousTest.Add(tCurr);
-
-                    // Add the score and the time for the average calculation
-                    dScores += double.Parse(data[3]);
-                    dTime += double.Parse(data[4]);
-
-                    nTestCounter++;
-                }
-            }
-
-            // Close file
-            srReader.Close();
-            fsTestResults.Close();
-
-            // Calc Average
-            m_dScoreAvearage = dScores / nTestCounter;
-            m_dTimeAvearage = dTime / nTestCounter;
-        }
-
-        private DateTime convertStringsToDate(string strDate, string strTime)
-        {
-            return (new DateTime(Int32.Parse(strDate.Split('/')[2]),
-                Int32.Parse(strDate.Split('/')[1]),
-                Int32.Parse(strDate.Split('/')[0]),
-                Int32.Parse(strTime.Split(':')[0]),
-                Int32.Parse(strTime.Split(':')[1]), 0));
         }
     }
 }

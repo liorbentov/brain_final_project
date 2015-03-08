@@ -17,6 +17,9 @@ namespace FinalProject
         public int Minutes { get { return this.m_nMinutes; } private set { this.m_nMinutes = value; } }
         public string Sentence { get { return this.m_strSentence; } private set { this.m_strSentence = value; } }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Question7()
         {
             // Get correct data from configuration
@@ -28,6 +31,12 @@ namespace FinalProject
             this.AnswerScore = 3;
         }
 
+        /// <summary>
+        /// This method calculate the questions score according to the user answers
+        /// </summary>
+        /// <param name="minutes">Minutes that the user entered</param>
+        /// <param name="hours">Hours that the user entered</param>
+        /// <returns>double. The calculated score for the current question</returns>
         public double checkAnswer(int minutes, int hours)
         {
             // If hour and minutes are in place and exact

@@ -12,7 +12,10 @@ namespace FinalProject
         int m_nTimesSubstracted;
 
         public int TimeSubstracted { get { return (m_nTimesSubstracted); } set { m_nTimesSubstracted = value; } }
-
+       
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Question6()
         {
             this.m_nInitialNumber = 100;
@@ -20,6 +23,11 @@ namespace FinalProject
             this.AnswerScore = 5;
         }
 
+        /// <summary>
+        /// This method calculate the questions score according to the user answers
+        /// </summary>
+        /// <param name="nNumberToCheck">The number after user substraction</param>
+        /// <returns>double. The calculated score for the current question</returns>
         public double checkAnswer(int nNumberToCheck)
         {
             // Check if the difference is 7

@@ -14,6 +14,9 @@ namespace FinalProject
         public int Hour { get { return this.m_nHour; } private set { this.m_nHour = value; } }
         public int Minutes { get { return this.m_nMinutes; } private set { this.m_nMinutes = value; } }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Question8()
         {
             this.m_nHour = new Random().Next(0, 11);
@@ -22,6 +25,12 @@ namespace FinalProject
             this.AnswerScore = 2;
         }
 
+        /// <summary>
+        /// This method calculate the questions score according to the user answers
+        /// </summary>
+        /// <param name="minutes">Minutes that the user entered</param>
+        /// <param name="hours">Hours that the user entered</param>
+        /// <returns>double. The calculated score for the current question</returns>
         public double checkAnswer(int minutes, int hours)
         {
             // If hour and minutes are in place and exact

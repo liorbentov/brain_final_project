@@ -913,7 +913,7 @@
             // 
             // GlobalTimer
             // 
-            this.GlobalTimer.Interval = 1000;
+            this.GlobalTimer.Interval = 10000;
             this.GlobalTimer.Tick += new System.EventHandler(this.GlobalTimer_Tick);
             // 
             // timer1
@@ -1138,6 +1138,7 @@
             this.Name = "Questionaire";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MMSE";
             this.Load += new System.EventHandler(this.Questionaire_Load);
             this.tabControl1.ResumeLayout(false);
